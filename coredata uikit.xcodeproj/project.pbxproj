@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3241D55927030AF60029298D /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55827030AF60029298D /* loginViewController.swift */; };
-		3241D55B27030B070029298D /* signupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55A27030B070029298D /* signupViewController.swift */; };
+		3241D55927030AF60029298D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55827030AF60029298D /* LoginViewController.swift */; };
+		3241D55B27030B070029298D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55A27030B070029298D /* SignupViewController.swift */; };
 		3241D58627032BD80029298D /* Data+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D58427032BD70029298D /* Data+CoreDataClass.swift */; };
 		3241D58727032BD80029298D /* Data+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D58527032BD80029298D /* Data+CoreDataProperties.swift */; };
+		325025EA2704D0AF00AE9111 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325025E92704D0AF00AE9111 /* ProfileViewController.swift */; };
+		325025EC2704D2B500AE9111 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325025EB2704D2B500AE9111 /* ToDoTableViewController.swift */; };
 		3269922F27019F4B00B12808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269922E27019F4B00B12808 /* AppDelegate.swift */; };
 		3269923127019F4B00B12808 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269923027019F4B00B12808 /* SceneDelegate.swift */; };
-		3269923327019F4B00B12808 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269923227019F4B00B12808 /* ViewController.swift */; };
+		3269923327019F4B00B12808 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269923227019F4B00B12808 /* InitialViewController.swift */; };
 		3269923627019F4B00B12808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3269923427019F4B00B12808 /* Main.storyboard */; };
 		3269923927019F4B00B12808 /* coredata_uikit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3269923727019F4B00B12808 /* coredata_uikit.xcdatamodeld */; };
 		3269923B27019F4C00B12808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3269923A27019F4C00B12808 /* Assets.xcassets */; };
@@ -21,14 +23,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3241D55827030AF60029298D /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
-		3241D55A27030B070029298D /* signupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupViewController.swift; sourceTree = "<group>"; };
+		3241D55827030AF60029298D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3241D55A27030B070029298D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		3241D58427032BD70029298D /* Data+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3241D58527032BD80029298D /* Data+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		325025E92704D0AF00AE9111 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		325025EB2704D2B500AE9111 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		3269922B27019F4B00B12808 /* coredata uikit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coredata uikit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3269922E27019F4B00B12808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3269923027019F4B00B12808 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3269923227019F4B00B12808 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3269923227019F4B00B12808 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		3269923527019F4B00B12808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3269923827019F4B00B12808 /* coredata_uikit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coredata_uikit.xcdatamodel; sourceTree = "<group>"; };
 		3269923A27019F4C00B12808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,9 +54,11 @@
 		3241D55C27030B130029298D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3241D55827030AF60029298D /* loginViewController.swift */,
-				3241D55A27030B070029298D /* signupViewController.swift */,
-				3269923227019F4B00B12808 /* ViewController.swift */,
+				3269923227019F4B00B12808 /* InitialViewController.swift */,
+				3241D55827030AF60029298D /* LoginViewController.swift */,
+				3241D55A27030B070029298D /* SignupViewController.swift */,
+				325025E92704D0AF00AE9111 /* ProfileViewController.swift */,
+				325025EB2704D2B500AE9111 /* ToDoTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -185,13 +191,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3241D58627032BD80029298D /* Data+CoreDataClass.swift in Sources */,
-				3269923327019F4B00B12808 /* ViewController.swift in Sources */,
+				3269923327019F4B00B12808 /* InitialViewController.swift in Sources */,
 				3269922F27019F4B00B12808 /* AppDelegate.swift in Sources */,
 				3269923127019F4B00B12808 /* SceneDelegate.swift in Sources */,
 				3269923927019F4B00B12808 /* coredata_uikit.xcdatamodeld in Sources */,
 				3241D58727032BD80029298D /* Data+CoreDataProperties.swift in Sources */,
-				3241D55B27030B070029298D /* signupViewController.swift in Sources */,
-				3241D55927030AF60029298D /* loginViewController.swift in Sources */,
+				325025EA2704D0AF00AE9111 /* ProfileViewController.swift in Sources */,
+				3241D55B27030B070029298D /* SignupViewController.swift in Sources */,
+				3241D55927030AF60029298D /* LoginViewController.swift in Sources */,
+				325025EC2704D2B500AE9111 /* ToDoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
