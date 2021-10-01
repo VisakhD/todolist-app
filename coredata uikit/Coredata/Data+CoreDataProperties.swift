@@ -2,7 +2,7 @@
 //  Data+CoreDataProperties.swift
 //  coredata uikit
 //
-//  Created by Visakh D on 28/09/21.
+//  Created by Visakh D on 01/10/21.
 //
 //
 
@@ -16,8 +16,10 @@ extension Data {
         return NSFetchRequest<Data>(entityName: "Data")
     }
 
+    @NSManaged public var email: String?
+    @NSManaged public var name: String?
+    @NSManaged public var password: String?
     @NSManaged public var username: String?
-    @NSManaged public var password: Int64
 
 }
 

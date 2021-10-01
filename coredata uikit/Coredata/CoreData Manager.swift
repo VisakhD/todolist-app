@@ -11,6 +11,7 @@ import CoreData
 class CoreData {
     
     static let shared  = CoreData()
+    private init () {}
     
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -53,8 +54,42 @@ class CoreData {
         }
     }
     
-}
+
 
 
 //To do list
+
+var  userProfile : [Data]?
+
+func userProfileModel (name:String,username:String,email:String,password:String)  {
+    let context = CoreData.shared.persistentContainer.viewContext
+    
+    
+    let   toDolist = NSEntityDescription.insertNewObject(forEntityName: "Data", into: context)
+    toDolist.setValue(name, forKey: "name")
+    toDolist.setValue(username, forKey: "username")
+    toDolist.setValue(email, forKey: "email")
+    toDolist.setValue(password, forKey: "password")
+    try! context.save()
+    
+    
+}
+
+func fetchData()   {
+    do {
+        userProfile = try
+            CoreData.shared.persistentContainer.viewContext.fetch(Data.fetchRequest())
+        print("hello",userProfile?.count ?? 0)
+    }
+    catch{}
+}
+
+
+}
+
+
+
+
+
+
 

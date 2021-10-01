@@ -21,6 +21,17 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginButton(_ sender: UIButton) {
         
+        
+        
+       
+        
+        if  usernameText.text == "" && passwordText.text == "" {
+            UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
+        
+        
+        let toDoTableHome = self.storyboard?.instantiateViewController(withIdentifier: "ToDoTableViewController") as! ToDoTableViewController
+        self.navigationController?.pushViewController(toDoTableHome, animated: true)
+        }
     }
     
 

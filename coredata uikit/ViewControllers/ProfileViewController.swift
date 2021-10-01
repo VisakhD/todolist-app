@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate {
 
     @IBOutlet weak var nameTextFieldLabel: UILabel!
     @IBOutlet weak var usernameTextFieldLabel: UILabel!
@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController {
     
 
     @IBAction func logoutButton(_ sender: UIButton) {
+        UserDefaults.standard.setValue(false, forKey: "ISUSERLOGGEDIN")
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
