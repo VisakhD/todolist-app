@@ -20,6 +20,8 @@
 		3269923927019F4B00B12808 /* coredata_uikit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3269923727019F4B00B12808 /* coredata_uikit.xcdatamodeld */; };
 		3269923B27019F4C00B12808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3269923A27019F4C00B12808 /* Assets.xcassets */; };
 		3269923E27019F4C00B12808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3269923C27019F4C00B12808 /* LaunchScreen.storyboard */; };
+		3274F2D22706C927000EE292 /* CoreData Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274F2D12706C927000EE292 /* CoreData Manager.swift */; };
+		3274F2D42706DC9A000EE292 /* TodoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274F2D32706DC9A000EE292 /* TodoRegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		3269923A27019F4C00B12808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3269923D27019F4C00B12808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3269923F27019F4C00B12808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3274F2D12706C927000EE292 /* CoreData Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData Manager.swift"; sourceTree = "<group>"; };
+		3274F2D32706DC9A000EE292 /* TodoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 				3241D55A27030B070029298D /* SignupViewController.swift */,
 				325025E92704D0AF00AE9111 /* ProfileViewController.swift */,
 				325025EB2704D2B500AE9111 /* ToDoTableViewController.swift */,
+				3274F2D32706DC9A000EE292 /* TodoRegisterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -68,6 +73,7 @@
 			children = (
 				3241D58427032BD70029298D /* Data+CoreDataClass.swift */,
 				3241D58527032BD80029298D /* Data+CoreDataProperties.swift */,
+				3274F2D12706C927000EE292 /* CoreData Manager.swift */,
 			);
 			path = Coredata;
 			sourceTree = "<group>";
@@ -192,11 +198,13 @@
 			files = (
 				3241D58627032BD80029298D /* Data+CoreDataClass.swift in Sources */,
 				3269923327019F4B00B12808 /* InitialViewController.swift in Sources */,
+				3274F2D42706DC9A000EE292 /* TodoRegisterViewController.swift in Sources */,
 				3269922F27019F4B00B12808 /* AppDelegate.swift in Sources */,
 				3269923127019F4B00B12808 /* SceneDelegate.swift in Sources */,
 				3269923927019F4B00B12808 /* coredata_uikit.xcdatamodeld in Sources */,
 				3241D58727032BD80029298D /* Data+CoreDataProperties.swift in Sources */,
 				325025EA2704D0AF00AE9111 /* ProfileViewController.swift in Sources */,
+				3274F2D22706C927000EE292 /* CoreData Manager.swift in Sources */,
 				3241D55B27030B070029298D /* SignupViewController.swift in Sources */,
 				3241D55927030AF60029298D /* LoginViewController.swift in Sources */,
 				325025EC2704D2B500AE9111 /* ToDoTableViewController.swift in Sources */,
