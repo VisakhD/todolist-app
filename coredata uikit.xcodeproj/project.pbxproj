@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		322867452707834800D3E3FB /* TabHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322867442707834800D3E3FB /* TabHomeViewController.swift */; };
 		3241D55927030AF60029298D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55827030AF60029298D /* LoginViewController.swift */; };
 		3241D55B27030B070029298D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55A27030B070029298D /* SignupViewController.swift */; };
 		325025EA2704D0AF00AE9111 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325025E92704D0AF00AE9111 /* ProfileViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		322867442707834800D3E3FB /* TabHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHomeViewController.swift; sourceTree = "<group>"; };
 		3241D55827030AF60029298D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3241D55A27030B070029298D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		325025E92704D0AF00AE9111 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				3269923227019F4B00B12808 /* InitialViewController.swift */,
 				3241D55827030AF60029298D /* LoginViewController.swift */,
+				322867442707834800D3E3FB /* TabHomeViewController.swift */,
 				3241D55A27030B070029298D /* SignupViewController.swift */,
 				325025E92704D0AF00AE9111 /* ProfileViewController.swift */,
 				325025EB2704D2B500AE9111 /* ToDoTableViewController.swift */,
@@ -199,6 +202,7 @@
 				3269923327019F4B00B12808 /* InitialViewController.swift in Sources */,
 				3274F2D42706DC9A000EE292 /* TodoRegisterViewController.swift in Sources */,
 				3269922F27019F4B00B12808 /* AppDelegate.swift in Sources */,
+				322867452707834800D3E3FB /* TabHomeViewController.swift in Sources */,
 				3269923127019F4B00B12808 /* SceneDelegate.swift in Sources */,
 				3274F2DB27071713000EE292 /* Data+CoreDataClass.swift in Sources */,
 				3274F2DC27071713000EE292 /* Data+CoreDataProperties.swift in Sources */,

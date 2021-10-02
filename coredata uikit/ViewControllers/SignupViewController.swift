@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate  {
+class SignupViewController: UIViewController   {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var usernameTextfield: UITextField!
@@ -15,7 +15,7 @@ class SignupViewController: UIViewController , UIImagePickerControllerDelegate ,
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
  
-    @IBOutlet weak var imageField: UIImageView!
+
  
 //    var imagepickercontroller = UIImagePickerController
     
@@ -35,20 +35,25 @@ class SignupViewController: UIViewController , UIImagePickerControllerDelegate ,
         let confirmpassword = confirmPasswordField.text!
         
         validatelogin(Name: Name, usrName: usrName, email: email, password: password, confirmpassword: confirmpassword)
+        
+       if password == confirmpassword {
+            UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
+        let toDoTableHome = self.storyboard?.instantiateViewController(withIdentifier: "TabHomeViewController") as! TabHomeViewController
+        self.navigationController?.pushViewController(toDoTableHome, animated: true)
+        }
     }
     
+    
+//    function to validate and store to  core data 
     func validatelogin (Name:String , usrName:String , email:String , password:String, confirmpassword:String)  {
         if  password == confirmpassword {
             
             CoreData.shared.userProfileModel(name: Name, username: usrName, email: email, password:password)
+            
         }
     }
 
-    @IBAction func ImageUploadButton(_ sender: UIButton) {
-        
-        
-        
-    }
+  
     
     
     

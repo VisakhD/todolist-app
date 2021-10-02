@@ -60,7 +60,7 @@ class CoreData {
 //To do list
 
 var  userProfile : [Data]?
-
+// saving user data in core data
 func userProfileModel (name:String,username:String,email:String,password:String)  {
     let context = CoreData.shared.persistentContainer.viewContext
     
@@ -71,6 +71,7 @@ func userProfileModel (name:String,username:String,email:String,password:String)
     toDolist.setValue(email, forKey: "email")
     toDolist.setValue(password, forKey: "password")
     try! context.save()
+   print("ITEAM SAVED")
     
     
 }

@@ -15,9 +15,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if UserDefaults.standard.bool(forKey: "LOGGEDIN") == true {
+            let toDoTableHome = self.storyboard?.instantiateViewController(withIdentifier: "TabHomeViewController") as!  TabHomeViewController
+            self.navigationController?.pushViewController(toDoTableHome, animated: false)
     }
-    
+    }
 
     @IBAction func loginButton(_ sender: UIButton) {
         
@@ -29,7 +31,7 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
         
         
-        let toDoTableHome = self.storyboard?.instantiateViewController(withIdentifier: "ToDoTableViewController") as! ToDoTableViewController
+        let toDoTableHome = self.storyboard?.instantiateViewController(withIdentifier: "TabHomeViewController") as! TabHomeViewController
         self.navigationController?.pushViewController(toDoTableHome, animated: true)
         }
     }
