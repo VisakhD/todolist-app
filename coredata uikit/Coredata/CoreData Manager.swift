@@ -19,13 +19,13 @@ class CoreData {
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "coredata_uikit")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -54,38 +54,36 @@ class CoreData {
         }
     }
     
-
-
-
-//To do list
-
-var  userProfile : [Data]?
-// saving user data in core data
-func userProfileModel (name:String,username:String,email:String,password:String)  {
-    let context = CoreData.shared.persistentContainer.viewContext
     
     
-    let   toDolist = NSEntityDescription.insertNewObject(forEntityName: "Data", into: context)
-    toDolist.setValue(name, forKey: "name")
-    toDolist.setValue(username, forKey: "username")
-    toDolist.setValue(email, forKey: "email")
-    toDolist.setValue(password, forKey: "password")
-    try! context.save()
-   print("ITEAM SAVED")
     
+    //To do list
     
-}
-
-func fetchData()   {
-    do {
-        userProfile = try
-            CoreData.shared.persistentContainer.viewContext.fetch(Data.fetchRequest())
-        print("hello",userProfile?.count ?? 0)
+    var  userProfile : [Data]?
+    // saving user data in core data
+    func userProfileModel (name:String,username:String,email:String,password:String)  {
+        let context = CoreData.shared.persistentContainer.viewContext
+        
+        let toDolist = NSEntityDescription.insertNewObject(forEntityName: "Data", into: context)
+        toDolist.setValue(name, forKey: "name")
+        toDolist.setValue(username, forKey: "username")
+        toDolist.setValue(email, forKey: "email")
+        toDolist.setValue(password, forKey: "password")
+        try! context.save()
+        print("ITEAM SAVED")
+        
     }
-    catch{}
-}
-
-
+    
+    func fetchData()   {
+        do {
+            userProfile = try
+                CoreData.shared.persistentContainer.viewContext.fetch(Data.fetchRequest())
+            print("hello",userProfile?.count ?? 0)
+        }
+        catch{}
+    }
+    
+    
 }
 
 

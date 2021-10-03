@@ -14,17 +14,22 @@ class ProfileViewController: UIViewController  {
     @IBOutlet weak var usernameTextFieldLabel: UILabel!
     
     @IBOutlet weak var emailTextField: UILabel!
+    
+    weak var rootDelegate: RootSwitching?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      
+        // rootdelegate setting
+        rootDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
+        
         profilephoto.backgroundColor = .secondarySystemBackground
     }
     
 
     @IBAction func logoutButton(_ sender: UIButton) {
         UserDefaults.standard.setValue(false, forKey: "ISUSERLOGGEDIN")
-        let Home = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.popToViewController(Home, animated: true)
+        rootDelegate?.logOut()
    
     
     }

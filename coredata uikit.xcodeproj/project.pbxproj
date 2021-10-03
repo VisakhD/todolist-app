@@ -23,6 +23,9 @@
 		3274F2D42706DC9A000EE292 /* TodoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274F2D32706DC9A000EE292 /* TodoRegisterViewController.swift */; };
 		3274F2DB27071713000EE292 /* Data+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274F2D927071713000EE292 /* Data+CoreDataClass.swift */; };
 		3274F2DC27071713000EE292 /* Data+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274F2DA27071713000EE292 /* Data+CoreDataProperties.swift */; };
+		9729C3112709A4E7007C6262 /* TDLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9729C3102709A4E7007C6262 /* TDLButton.swift */; };
+		9788AA69270A25EC002FBFE6 /* Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9788AA68270A25EC002FBFE6 /* Extenstions.swift */; };
+		9788AA6B270A2788002FBFE6 /* RouteSwitching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9788AA6A270A2788002FBFE6 /* RouteSwitching.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		3274F2D32706DC9A000EE292 /* TodoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRegisterViewController.swift; sourceTree = "<group>"; };
 		3274F2D927071713000EE292 /* Data+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3274F2DA27071713000EE292 /* Data+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9729C3102709A4E7007C6262 /* TDLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDLButton.swift; sourceTree = "<group>"; };
+		9788AA68270A25EC002FBFE6 /* Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstions.swift; sourceTree = "<group>"; };
+		9788AA6A270A2788002FBFE6 /* RouteSwitching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSwitching.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 			children = (
 				3269922E27019F4B00B12808 /* AppDelegate.swift */,
 				3269923027019F4B00B12808 /* SceneDelegate.swift */,
+				9788AA6A270A2788002FBFE6 /* RouteSwitching.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -125,6 +132,8 @@
 				3269923A27019F4C00B12808 /* Assets.xcassets */,
 				3269923F27019F4C00B12808 /* Info.plist */,
 				3269923727019F4B00B12808 /* coredata_uikit.xcdatamodeld */,
+				9729C3102709A4E7007C6262 /* TDLButton.swift */,
+				9788AA68270A25EC002FBFE6 /* Extenstions.swift */,
 			);
 			path = "coredata uikit";
 			sourceTree = "<group>";
@@ -200,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3269923327019F4B00B12808 /* InitialViewController.swift in Sources */,
+				9788AA69270A25EC002FBFE6 /* Extenstions.swift in Sources */,
 				3274F2D42706DC9A000EE292 /* TodoRegisterViewController.swift in Sources */,
 				3269922F27019F4B00B12808 /* AppDelegate.swift in Sources */,
 				322867452707834800D3E3FB /* TabHomeViewController.swift in Sources */,
@@ -207,10 +217,12 @@
 				3274F2DB27071713000EE292 /* Data+CoreDataClass.swift in Sources */,
 				3274F2DC27071713000EE292 /* Data+CoreDataProperties.swift in Sources */,
 				3269923927019F4B00B12808 /* coredata_uikit.xcdatamodeld in Sources */,
+				9729C3112709A4E7007C6262 /* TDLButton.swift in Sources */,
 				325025EA2704D0AF00AE9111 /* ProfileViewController.swift in Sources */,
 				3274F2D22706C927000EE292 /* CoreData Manager.swift in Sources */,
 				3241D55B27030B070029298D /* SignupViewController.swift in Sources */,
 				3241D55927030AF60029298D /* LoginViewController.swift in Sources */,
+				9788AA6B270A2788002FBFE6 /* RouteSwitching.swift in Sources */,
 				325025EC2704D2B500AE9111 /* ToDoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
