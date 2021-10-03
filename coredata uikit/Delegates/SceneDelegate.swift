@@ -53,3 +53,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate : RootSwitching {
+    
+    func loginSucceed() {
+        print("Got to Home")
+        let toDoTableHome = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabHomeViewController") as! TabHomeViewController
+        window?.rootViewController = toDoTableHome
+    }
+    
+    func logOut() {
+        // make user singletone nil
+        
+        // reset root to login page (main navigation root)
+        let rootNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RootNavigationController") as! UINavigationController
+        window?.rootViewController = rootNavigationController
+    }
+}
