@@ -29,6 +29,7 @@ class ProfileViewController: UIViewController  {
 
     @IBAction func logoutButton(_ sender: UIButton) {
         UserDefaults.standard.setValue(false, forKey: "ISUSERLOGGEDIN")
+            
         rootDelegate?.logOut()
    
     
@@ -92,10 +93,3 @@ extension ProfileViewController : UIImagePickerControllerDelegate , UINavigation
 }
 
 
-extension UINavigationController {
-  func popToViewController(ofClass: LoginViewController, animated: Bool = true) {
-    if let vc = viewControllers.last(where: { $0.isKind(of: LoginViewController.self) }) {
-      popToViewController(vc, animated: animated)
-    }
-  }
-}

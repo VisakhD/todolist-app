@@ -22,7 +22,8 @@ class LoginViewController: UIViewController {
         
         if UserDefaults.standard.bool(forKey: "LOGGEDIN") == true {
             let toDoTableHome = self.storyboard?.instantiateViewController(withIdentifier: "TabHomeViewController") as!  TabHomeViewController
-            self.navigationController?.pushViewController(toDoTableHome, animated: false)
+            
+            self.navigationController?.pushViewController(toDoTableHome, animated: true)
         }
     }
     
@@ -30,8 +31,9 @@ class LoginViewController: UIViewController {
         
         //        if  usernameText.text == "" && passwordText.text == "" {
         //            UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
-        //
-        //
+        
+       
+        
         
         
         rootDelegate?.loginSucceed()

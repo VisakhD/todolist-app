@@ -65,7 +65,46 @@ extension SceneDelegate : RootSwitching {
         // make user singletone nil
         
         // reset root to login page (main navigation root)
-        let rootNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RootNavigationController") as! UINavigationController
-        window?.rootViewController = rootNavigationController
+        let storyB = UIStoryboard(name: "Main", bundle: nil)
+     let LoginViewController = storyB.instantiateViewController(withIdentifier: "LoginViewController")
+      
+        
+        window?.rootViewController = LoginViewController
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

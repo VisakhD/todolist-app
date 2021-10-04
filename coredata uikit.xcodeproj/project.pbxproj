@@ -11,7 +11,6 @@
 		3241D55927030AF60029298D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55827030AF60029298D /* LoginViewController.swift */; };
 		3241D55B27030B070029298D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55A27030B070029298D /* SignupViewController.swift */; };
 		325025EA2704D0AF00AE9111 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325025E92704D0AF00AE9111 /* ProfileViewController.swift */; };
-		325025EC2704D2B500AE9111 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325025EB2704D2B500AE9111 /* ToDoTableViewController.swift */; };
 		3269922F27019F4B00B12808 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269922E27019F4B00B12808 /* AppDelegate.swift */; };
 		3269923127019F4B00B12808 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269923027019F4B00B12808 /* SceneDelegate.swift */; };
 		3269923327019F4B00B12808 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3269923227019F4B00B12808 /* InitialViewController.swift */; };
@@ -21,8 +20,11 @@
 		3269923E27019F4C00B12808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3269923C27019F4C00B12808 /* LaunchScreen.storyboard */; };
 		3274F2D22706C927000EE292 /* CoreData Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274F2D12706C927000EE292 /* CoreData Manager.swift */; };
 		3274F2D42706DC9A000EE292 /* TodoRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274F2D32706DC9A000EE292 /* TodoRegisterViewController.swift */; };
-		3274F2DB27071713000EE292 /* Data+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274F2D927071713000EE292 /* Data+CoreDataClass.swift */; };
-		3274F2DC27071713000EE292 /* Data+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274F2DA27071713000EE292 /* Data+CoreDataProperties.swift */; };
+		3285CF8A270B20EE00C3B340 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285CF89270B20EE00C3B340 /* ToDoTableViewController.swift */; };
+		3285CF97270B3E6900C3B340 /* ToDoItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285CF93270B3E6900C3B340 /* ToDoItem+CoreDataClass.swift */; };
+		3285CF98270B3E6900C3B340 /* ToDoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285CF94270B3E6900C3B340 /* ToDoItem+CoreDataProperties.swift */; };
+		3285CF99270B3E6900C3B340 /* UserDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285CF95270B3E6900C3B340 /* UserDetails+CoreDataClass.swift */; };
+		3285CF9A270B3E6900C3B340 /* UserDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3285CF96270B3E6900C3B340 /* UserDetails+CoreDataProperties.swift */; };
 		9729C3112709A4E7007C6262 /* TDLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9729C3102709A4E7007C6262 /* TDLButton.swift */; };
 		9788AA69270A25EC002FBFE6 /* Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9788AA68270A25EC002FBFE6 /* Extenstions.swift */; };
 		9788AA6B270A2788002FBFE6 /* RouteSwitching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9788AA6A270A2788002FBFE6 /* RouteSwitching.swift */; };
@@ -33,7 +35,6 @@
 		3241D55827030AF60029298D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3241D55A27030B070029298D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		325025E92704D0AF00AE9111 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		325025EB2704D2B500AE9111 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		3269922B27019F4B00B12808 /* coredata uikit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "coredata uikit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3269922E27019F4B00B12808 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3269923027019F4B00B12808 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,8 +46,11 @@
 		3269923F27019F4C00B12808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3274F2D12706C927000EE292 /* CoreData Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData Manager.swift"; sourceTree = "<group>"; };
 		3274F2D32706DC9A000EE292 /* TodoRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRegisterViewController.swift; sourceTree = "<group>"; };
-		3274F2D927071713000EE292 /* Data+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3274F2DA27071713000EE292 /* Data+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3285CF89270B20EE00C3B340 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
+		3285CF93270B3E6900C3B340 /* ToDoItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3285CF94270B3E6900C3B340 /* ToDoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3285CF95270B3E6900C3B340 /* UserDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3285CF96270B3E6900C3B340 /* UserDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9729C3102709A4E7007C6262 /* TDLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDLButton.swift; sourceTree = "<group>"; };
 		9788AA68270A25EC002FBFE6 /* Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstions.swift; sourceTree = "<group>"; };
 		9788AA6A270A2788002FBFE6 /* RouteSwitching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSwitching.swift; sourceTree = "<group>"; };
@@ -71,7 +75,7 @@
 				322867442707834800D3E3FB /* TabHomeViewController.swift */,
 				3241D55A27030B070029298D /* SignupViewController.swift */,
 				325025E92704D0AF00AE9111 /* ProfileViewController.swift */,
-				325025EB2704D2B500AE9111 /* ToDoTableViewController.swift */,
+				3285CF89270B20EE00C3B340 /* ToDoTableViewController.swift */,
 				3274F2D32706DC9A000EE292 /* TodoRegisterViewController.swift */,
 			);
 			path = ViewControllers;
@@ -80,8 +84,10 @@
 		3241D581270323160029298D /* Coredata */ = {
 			isa = PBXGroup;
 			children = (
-				3274F2D927071713000EE292 /* Data+CoreDataClass.swift */,
-				3274F2DA27071713000EE292 /* Data+CoreDataProperties.swift */,
+				3285CF93270B3E6900C3B340 /* ToDoItem+CoreDataClass.swift */,
+				3285CF94270B3E6900C3B340 /* ToDoItem+CoreDataProperties.swift */,
+				3285CF95270B3E6900C3B340 /* UserDetails+CoreDataClass.swift */,
+				3285CF96270B3E6900C3B340 /* UserDetails+CoreDataProperties.swift */,
 				3274F2D12706C927000EE292 /* CoreData Manager.swift */,
 			);
 			path = Coredata;
@@ -209,21 +215,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				3269923327019F4B00B12808 /* InitialViewController.swift in Sources */,
+				3285CF99270B3E6900C3B340 /* UserDetails+CoreDataClass.swift in Sources */,
 				9788AA69270A25EC002FBFE6 /* Extenstions.swift in Sources */,
 				3274F2D42706DC9A000EE292 /* TodoRegisterViewController.swift in Sources */,
 				3269922F27019F4B00B12808 /* AppDelegate.swift in Sources */,
+				3285CF9A270B3E6900C3B340 /* UserDetails+CoreDataProperties.swift in Sources */,
+				3285CF98270B3E6900C3B340 /* ToDoItem+CoreDataProperties.swift in Sources */,
 				322867452707834800D3E3FB /* TabHomeViewController.swift in Sources */,
+				3285CF8A270B20EE00C3B340 /* ToDoTableViewController.swift in Sources */,
 				3269923127019F4B00B12808 /* SceneDelegate.swift in Sources */,
-				3274F2DB27071713000EE292 /* Data+CoreDataClass.swift in Sources */,
-				3274F2DC27071713000EE292 /* Data+CoreDataProperties.swift in Sources */,
 				3269923927019F4B00B12808 /* coredata_uikit.xcdatamodeld in Sources */,
 				9729C3112709A4E7007C6262 /* TDLButton.swift in Sources */,
 				325025EA2704D0AF00AE9111 /* ProfileViewController.swift in Sources */,
 				3274F2D22706C927000EE292 /* CoreData Manager.swift in Sources */,
 				3241D55B27030B070029298D /* SignupViewController.swift in Sources */,
 				3241D55927030AF60029298D /* LoginViewController.swift in Sources */,
+				3285CF97270B3E6900C3B340 /* ToDoItem+CoreDataClass.swift in Sources */,
 				9788AA6B270A2788002FBFE6 /* RouteSwitching.swift in Sources */,
-				325025EC2704D2B500AE9111 /* ToDoTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

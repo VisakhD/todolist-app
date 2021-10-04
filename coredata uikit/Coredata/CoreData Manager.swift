@@ -11,7 +11,10 @@ import CoreData
 class CoreData {
     
     static let shared  = CoreData()
-    private init () {}
+//    user details array created and moved to the top
+    
+    var  userProfile : [UserDetails]?
+    
     
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -39,6 +42,7 @@ class CoreData {
         })
         return container
     }()
+    private init () {}
     
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -57,14 +61,14 @@ class CoreData {
     
     
     
-    //To do list
+
     
-    var  userProfile : [Data]?
+    
     // saving user data in core data
     func userProfileModel (name:String,username:String,email:String,password:String)  {
-        let context = CoreData.shared.persistentContainer.viewContext
+        let context = persistentContainer.viewContext
         
-        let toDolist = NSEntityDescription.insertNewObject(forEntityName: "Data", into: context)
+        let toDolist = NSEntityDescription.insertNewObject(forEntityName: "UserDetails", into: context)
         toDolist.setValue(name, forKey: "name")
         toDolist.setValue(username, forKey: "username")
         toDolist.setValue(email, forKey: "email")
@@ -77,12 +81,14 @@ class CoreData {
     func fetchData()   {
         do {
             userProfile = try
-                CoreData.shared.persistentContainer.viewContext.fetch(Data.fetchRequest())
+                persistentContainer.viewContext.fetch(UserDetails.fetchRequest())
             print("hello",userProfile?.count ?? 0)
         }
         catch{}
     }
     
+    
+//    todoitem coredata functions
     
 }
 

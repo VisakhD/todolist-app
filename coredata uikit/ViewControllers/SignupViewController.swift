@@ -19,7 +19,7 @@ class SignupViewController: UIViewController   {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // rootdelegate setting
         rootDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
         
@@ -35,14 +35,40 @@ class SignupViewController: UIViewController   {
         let password = passwordTextField.text!
         let confirmPassword = confirmPasswordField.text!
         
-//        validatelogin(Name: name, usrName: usrName, email: email, password: password, confirmpassword: confirmpassword)
+       
         
-       if password == confirmPassword {
+       if password == confirmPassword  {
             UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
-        }
+        showAlertSucess()
+       }
+       else {
+       showAlertError()
+        return
+       }
+        
+    
+        validatelogin(Name: name, usrName: usrName, email: email, password: password, confirmpassword: confirmPassword)
         
         rootDelegate?.loginSucceed()
+        
+        
     }
+    
+    
+    func showAlertSucess() {
+            let alert = UIAlertController(title: "Congrats", message: "Sucessfully Completed SiginUp", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style:.cancel, handler: {action in print("Action completed")}))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertError() {
+            let alert = UIAlertController(title: "ERROR", message: "Password Do not MAtch", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style:.destructive, handler: {action in print("error completed")}))
+        present(alert, animated: true, completion: nil)
+    
+       
+    }
+    
     @IBAction func cancelButtonAction(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -51,10 +77,11 @@ class SignupViewController: UIViewController   {
     
     // MARK: Function to validate and store to  core data
     func validatelogin (Name:String , usrName:String , email:String , password:String, confirmpassword:String)  {
-        if  password == confirmpassword {
+        if  password == confirmpassword  {
             
             CoreData.shared.userProfileModel(name: Name, username: usrName, email: email, password:password)
             
         }
     }
 }
+
