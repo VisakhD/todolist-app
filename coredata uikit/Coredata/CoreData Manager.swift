@@ -15,6 +15,8 @@ class CoreData {
     
     var  userProfile : [UserDetails]?
     
+    var toDotable : [ToDoItem]?
+    
     
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -88,7 +90,79 @@ class CoreData {
     }
     
     
+    
+    func validateLogin(username:String,password:String) {
+        
+        
+//        let fetchRequest: NSFetchRequest<UserDetails>
+//        fetchRequest = UserDetails.fetchRequest()
+//
+//        let context = persistentContainer.viewContext
+//
+//
+//        let objects = try  context.fetch(fetchRequest)
+        
+        do{
+            let request = UserDetails.fetchRequest() as NSFetchRequest<UserDetails>
+            
+            let pred = NSPredicate(format: "username CONTAINS %@" , username)
+            let cred = NSPredicate(format: "password CONTAIN %@", password)
+            request.predicate = pred
+            request.predicate = cred
+            
+//            self.userProfile = try Context.fetch()
+        
+            
+        }
+       
+        
+    }
+    
+    
 //    todoitem coredata functions
+    
+    func getToDoItem() {
+        let context = persistentContainer.viewContext
+        
+        do {
+            let items =   try context.fetch(ToDoItem.fetchRequest())
+        } catch  {
+//            error
+        }
+    }
+    
+    func createToDoItem (title:String,content:String) {
+        let context = persistentContainer.viewContext
+        
+        let item = NSEntityDescription.insertNewObject(forEntityName: "ToDoItem", into: context)
+        item.setValue(title, forKey: "title")
+        item.setValue(content, forKey: "content")
+        try! context.save()
+        print("ToDoItem Saved")
+    }
+    
+    func deleteToDoItem(item:ToDoItem){
+        let context = persistentContainer.viewContext
+        context.delete(item)
+        do {
+            try context.save()
+        } catch  {
+//            error
+        }
+    }
+    
+    func updateToDoItem(item:ToDoItem , newtitle:String,newcontent:String) {
+        let context = persistentContainer.viewContext
+        item.title = newtitle
+        item.content = newcontent
+        
+        do {
+            try context.save()
+        } catch  {
+//            error
+        }
+        
+    }
     
 }
 
