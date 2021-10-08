@@ -15,7 +15,9 @@ class CoreData {
     
     var  userProfile : [UserDetails]?
     
+    
     var toDotable : [ToDoItem]?
+    
     
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -89,7 +91,7 @@ class CoreData {
         catch{}
     }
     
-    
+//    login validation code
     
     func validateLogin(username:String,password:String) {
         
@@ -119,17 +121,37 @@ class CoreData {
     }
     
     
-//    todoitem coredata functions
+    //    todoitem coredata functions
     
-    func getToDoItem() {
-        let context = persistentContainer.viewContext
-        
+    //    to get data fetching all datas
+    
+//    func getToDoItem()  {
+//        let context = persistentContainer.viewContext
+//
+//        do {
+//
+//        let   store = try context.fetch(ToDoItem.fetchRequest())
+//
+//
+//        } catch  {
+//            //            error
+//        }
+//
+//    }
+    
+    func getToDoItem()   {
         do {
-            let items =   try context.fetch(ToDoItem.fetchRequest())
-        } catch  {
-//            error
+            toDotable = try
+                persistentContainer.viewContext.fetch(ToDoItem.fetchRequest())
+            print("hello",userProfile?.count ?? 0)
+            
+           
         }
+        catch{}
     }
+    
+    
+//    to save data when submitted via register
     
     func createToDoItem (title:String,content:String) {
         let context = persistentContainer.viewContext
@@ -138,12 +160,15 @@ class CoreData {
         item.setValue(title, forKey: "title")
         item.setValue(content, forKey: "content")
         try! context.save()
+        getToDoItem()
         print("ToDoItem Saved")
     }
     
+//   to
     func deleteToDoItem(item:ToDoItem){
         let context = persistentContainer.viewContext
         context.delete(item)
+        getToDoItem()
         do {
             try context.save()
         } catch  {
@@ -158,6 +183,7 @@ class CoreData {
         
         do {
             try context.save()
+            getToDoItem()
         } catch  {
 //            error
         }

@@ -12,5 +12,6 @@ protocol RootSwitching: AnyObject {
     
     func loginSucceed()
     func logOut()
+    func dismissregister()
 }
 

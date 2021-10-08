@@ -8,48 +8,62 @@
 import UIKit
 
 class TodoRegisterViewController: UIViewController {
-
+    
+    weak var rootDelegate: RootSwitching?
+    
+    
+    
     @IBOutlet weak var titletextField: UITextField!
- 
+    
     
     @IBOutlet weak var descriptionTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        rootDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
     }
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion:nil)
     }
     
-
+    
     @IBAction func submitButton(_ sender: Any) {
         
         let toDoTitle = titletextField.text!
         let descp = descriptionTextField.text!
         
-//     calling the save function  and alert funtion 
+        if toDoTitle.isEmpty && descp.isEmpty {
+            
+            showAlertError()
+            
+            
+        }
+        else{
+            
+            //     calling the save function  and alert funtion
+            
+            saveToDo(toDoTitle: toDoTitle, descp: descp)
+            
+            
+            //        to dismiss the view from reg page after saving and to go back to home page
+            
+            rootDelegate?.dismissregister()
+            
+        }
         
-        saveToDo(toDoTitle: toDoTitle, descp: descp)
-        
-        showAlertSucess()
-        
-        self.dismiss(animated: true, completion: nil)
-
-//        to dismiss the view from reg page after saving and to go back to home page
-        
-        self.navigationController?.popViewController(animated: true)
-       
     }
     
-    func showAlertSucess() {
-            let alert = UIAlertController(title: "Congrats", message: "ToDoIteam Succefully Created", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style:.cancel, handler: {action in print("Action completed")}))
+    
+    func showAlertError() {
+        let alert = UIAlertController(title: "ERROR", message: "Text empty ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style:.destructive, handler: {action in print("error completed")}))
         present(alert, animated: true, completion: nil)
+        
+        
     }
     
-//    function to save the to do items to core data
-
+    //    function to save the to do items to core data
+    
     
     func saveToDo(toDoTitle:String, descp:String) {
         CoreData.shared.createToDoItem(title: toDoTitle, content: descp)

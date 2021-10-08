@@ -56,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate : RootSwitching {
     
     func loginSucceed() {
-        print("Got to Home")
+//        print("Got to Home")
         let toDoTableHome = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabHomeViewController") as! TabHomeViewController
         window?.rootViewController = toDoTableHome
     }
@@ -72,6 +72,11 @@ extension SceneDelegate : RootSwitching {
         window?.rootViewController = LoginViewController
         
     }
+    func dismissregister() {
+        let  home = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier:"TabHomeViewController") as! TabHomeViewController
+        window?.rootViewController = home
+    }
+    
 }
 
 

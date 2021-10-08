@@ -29,14 +29,27 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: UIButton) {
         
-        //        if  usernameText.text == "" && passwordText.text == "" {
-        //            UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
+        let user = usernameText.text!
+        let pass = passwordText.text!
         
-       
+        if  user.isEmpty && pass.isEmpty {
+            showAlertError()
+        }
+        else {
+            
+            UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
+            
+            rootDelegate?.loginSucceed()
+        }
+    }
+    
+    func showAlertError() {
+        let alert = UIAlertController(title: "ERROR", message: "Text empty ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style:.destructive, handler: {action in print("error completed")}))
+        present(alert, animated: true, completion: nil)
         
         
-        
-        rootDelegate?.loginSucceed()
-        //        }
     }
 }
+
+

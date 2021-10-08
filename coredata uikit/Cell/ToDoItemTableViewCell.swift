@@ -1,14 +1,15 @@
 //
-//  CellToDoItem.swift
+//  ToDoItemTableViewCell.swift
 //  coredata uikit
 //
-//  Created by Visakh D on 06/10/21.
+//  Created by Visakh D on 08/10/21.
 //
 
 import UIKit
 
-class CellToDoItem: UITableViewCell {
-
+class ToDoItemTableViewCell: UITableViewCell {
+ 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

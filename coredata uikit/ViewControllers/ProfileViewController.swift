@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController  {
         rootDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
         
         profilephoto.backgroundColor = .secondarySystemBackground
+        
+       let profileData = CoreData.shared.fetchData()
     }
     
 
