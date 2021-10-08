@@ -12,7 +12,7 @@ import UIKit
 class ToDoItemTableViewController: UITableViewController {
     
     var titletable = ["Todoitems","Completed"]
- 
+    var store : [ToDoItem]?
  
    
     
@@ -22,8 +22,9 @@ class ToDoItemTableViewController: UITableViewController {
         super.viewDidLoad()
         
         toDoTable.dataSource = self
-      toDoTable.delegate = self
-
+        toDoTable.delegate = self
+        
+        store = CoreData.shared.getToDoItem()
         
     }
 
@@ -37,15 +38,15 @@ class ToDoItemTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return store?.count ?? 0
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellMaker", for: indexPath)
        
-        cell.textLabel?.text = "crossroads"
-//        cell.cellTitle?.text =
+        cell.textLabel?.text = store?[indexPath.row].title
+          
         
         return cell
     }

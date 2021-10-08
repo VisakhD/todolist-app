@@ -121,35 +121,32 @@ class CoreData {
     }
     
     
-    //    todoitem coredata functions
+//        todoitem coredata functions
     
-    //    to get data fetching all datas
+//        to get data fetching all datas
     
-//    func getToDoItem()  {
-//        let context = persistentContainer.viewContext
-//
-//        do {
-//
-//        let   store = try context.fetch(ToDoItem.fetchRequest())
-//
-//
-//        } catch  {
-//            //            error
-//        }
-//
-//    }
-    
-    func getToDoItem()   {
-        do {
-            toDotable = try
-                persistentContainer.viewContext.fetch(ToDoItem.fetchRequest())
-            print("hello",userProfile?.count ?? 0)
-            
-           
-        }
-        catch{}
+    func getToDoItem() -> [ToDoItem] {
+        let context = persistentContainer.viewContext
+
+      
+
+        let   store = try! context.fetch(ToDoItem.fetchRequest()) as [ToDoItem]
+
+
+      return store
     }
     
+//    func getToDoItem() ->  {
+//        do {
+//            toDotable = try
+//                persistentContainer.viewContext.fetch(ToDoItem.fetchRequest())
+//            print("hello",userProfile?.count ?? 0)
+//
+//
+//        }
+//        catch{}
+//    }
+//
     
 //    to save data when submitted via register
     
