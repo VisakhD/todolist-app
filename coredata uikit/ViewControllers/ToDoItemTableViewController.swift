@@ -44,10 +44,11 @@ class ToDoItemTableViewController: UITableViewController {
     
 //    passing data to the cell to show in the table
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellMaker", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemTableViewCell", for: indexPath) as! ToDoItemTableViewCell
         
-        cell.textLabel?.text = store?[indexPath.row].title
-        //        cell.cellTitle?.text = store?[indexPath.row].title
+//        cell.textLabel?.text = store?[indexPath.row].title
+                cell.cellTitle?.text = store?[indexPath.row].title
+                cell.cellContent?.text = store?[indexPath.row].content
         
         return cell
     }
