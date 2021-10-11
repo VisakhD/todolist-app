@@ -8,13 +8,13 @@
 import UIKit
 
 class SignupViewController: UIViewController   {
-
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var usernameTextfield: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
- 
+    
     weak var rootDelegate: RootSwitching?
     
     override func viewDidLoad() {
@@ -28,25 +28,26 @@ class SignupViewController: UIViewController   {
     
     // MARK: Button Actions
     @IBAction func saveDataButton(_ sender: UIButton) {
-      
+        
         let name = nameTextField.text!
         let usrName = usernameTextfield.text!
         let email = emailTextField.text!
         let password = passwordTextField.text!
         let confirmPassword = confirmPasswordField.text!
         
-       
+    //   validation process of signup page
         
-       if password == confirmPassword  {
+        if password == confirmPassword  {
             UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
-        showAlertSucess()
-       }
-       else {
-       showAlertError()
-        return
-       }
+            showAlertSucess()
+        }
+        else {
+            showAlertError()
+            return
+        }
         
-    
+    //   storing the data of signup in core data & navigation to home
+        
         validatelogin(Name: name, usrName: usrName, email: email, password: password, confirmpassword: confirmPassword)
         
         rootDelegate?.loginSucceed()
@@ -54,28 +55,31 @@ class SignupViewController: UIViewController   {
         
     }
     
+    //    alert functions for signup page
     
     func showAlertSucess() {
-            let alert = UIAlertController(title: "Congrats", message: "Sucessfully Completed SiginUp", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style:.cancel, handler: {action in print("Action completed")}))
+        let alert = UIAlertController(title: "Congrats", message: "Sucessfully Completed SiginUp", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style:.cancel, handler: {action in print("Action completed")}))
         present(alert, animated: true, completion: nil)
     }
     
     func showAlertError() {
-            let alert = UIAlertController(title: "ERROR", message: "Password Do not MAtch", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style:.destructive, handler: {action in print("error completed")}))
+        let alert = UIAlertController(title: "ERROR", message: "Password Do not MAtch", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style:.destructive, handler: {action in print("error completed")}))
         present(alert, animated: true, completion: nil)
-    
-       
+
     }
+    
+//     cancel code for dismissing the page
     
     @IBAction func cancelButtonAction(_ sender: Any) {
         self.dismiss(animated: true)
     }
-
+    
     
     
     // MARK: Function to validate and store to  core data
+    
     func validatelogin (Name:String , usrName:String , email:String , password:String, confirmpassword:String)  {
         if  password == confirmpassword  {
             

@@ -32,16 +32,19 @@ class LoginViewController: UIViewController {
         let user = usernameText.text!
         let pass = passwordText.text!
         
+//        validation code if its emppty  else it will nacvigat to home
+        
         if  user.isEmpty && pass.isEmpty {
             showAlertError()
         }
         else {
             
             UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
-            
             rootDelegate?.loginSucceed()
         }
     }
+    
+//    alert func of the validation 
     
     func showAlertError() {
         let alert = UIAlertController(title: "ERROR", message: "Text empty ", preferredStyle: .alert)

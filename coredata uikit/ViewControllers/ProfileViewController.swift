@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController  {
-
+    
     @IBOutlet weak var profilephoto: UIImageView!
     @IBOutlet weak var nameTextFieldLabel: UILabel!
     @IBOutlet weak var usernameTextFieldLabel: UILabel!
@@ -19,22 +19,22 @@ class ProfileViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         // rootdelegate setting
         rootDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
         
         profilephoto.backgroundColor = .secondarySystemBackground
         
-       let profileData = CoreData.shared.fetchData()
+//        let profileData = CoreData.shared.fetchData()
     }
     
-
+    
     @IBAction func logoutButton(_ sender: UIButton) {
         UserDefaults.standard.setValue(false, forKey: "ISUSERLOGGEDIN")
-            
+        
         rootDelegate?.logOut()
-   
-    
+        
+        
     }
     
     @IBAction func uploadProfpicButton(_ sender: UIButton) {
@@ -52,13 +52,13 @@ class ProfileViewController: UIViewController  {
     }
     
     func openCamera() {
-       
+        
         let picker = UIImagePickerController()
         picker.sourceType = .camera
         picker.allowsEditing = true
         picker.delegate = self
         present(picker,animated: true)
-            
+        
     }
     
     func openGallary() {
@@ -67,7 +67,7 @@ class ProfileViewController: UIViewController  {
         picker.allowsEditing = true
         picker.delegate = self
         present(picker,animated: true)
-    
+        
     }
     
 }
@@ -86,7 +86,7 @@ extension ProfileViewController : UIImagePickerControllerDelegate , UINavigation
         profilephoto.image = image
         
     }
-
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         self.dismiss(animated: true, completion: nil)

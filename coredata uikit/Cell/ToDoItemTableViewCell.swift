@@ -9,6 +9,9 @@ import UIKit
 
 class ToDoItemTableViewCell: UITableViewCell {
  
+ 
+    @IBOutlet weak var cellTitle: UILabel!
+    @IBOutlet weak var cellContent: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +24,6 @@ class ToDoItemTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+
+    
 }

@@ -32,11 +32,12 @@ class TodoRegisterViewController: UIViewController {
         let toDoTitle = titletextField.text!
         let descp = descriptionTextField.text!
         
+        
+        
+        
         if toDoTitle.isEmpty && descp.isEmpty {
             
             showAlertError()
-            
-            
         }
         else{
             
@@ -44,11 +45,9 @@ class TodoRegisterViewController: UIViewController {
             
             saveToDo(toDoTitle: toDoTitle, descp: descp)
             
-            
             //        to dismiss the view from reg page after saving and to go back to home page
             
             rootDelegate?.dismissregister()
-            
         }
         
     }

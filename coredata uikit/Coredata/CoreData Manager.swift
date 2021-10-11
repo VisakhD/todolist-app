@@ -86,7 +86,7 @@ class CoreData {
         do {
             userProfile = try
                 persistentContainer.viewContext.fetch(UserDetails.fetchRequest())
-            print("hello",userProfile?.count ?? 0)
+            print("fetched",userProfile?.count ?? 0)
         }
         catch{}
     }
