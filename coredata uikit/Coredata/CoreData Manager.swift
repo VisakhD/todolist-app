@@ -11,14 +11,14 @@ import CoreData
 class CoreData {
     
     static let shared  = CoreData()
-//    user details array created and moved to the top
+    //    user details array created and moved to the top
     
     var  userProfile : [UserDetails]?
     
     
     var toDotable : [ToDoItem]?
     
-    
+//    let userFetchRequest = NSFetchRequest<NSFetchRequestResult>( entityName: "UserDetails")
     
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -65,7 +65,7 @@ class CoreData {
     
     
     
-
+    
     
     
     // saving user data in core data
@@ -91,104 +91,166 @@ class CoreData {
         catch{}
     }
     
-//    login validation code
+    //    login validation code
     
-    func validateLogin(username:String,password:String) {
-        
-        
-//        let fetchRequest: NSFetchRequest<UserDetails>
-//        fetchRequest = UserDetails.fetchRequest()
-//
-//        let context = persistentContainer.viewContext
-//
-//
-//        let objects = try  context.fetch(fetchRequest)
-        
-        do{
-            let request = UserDetails.fetchRequest() as NSFetchRequest<UserDetails>
-            
-            let pred = NSPredicate(format: "username CONTAINS %@" , username)
-            let cred = NSPredicate(format: "password CONTAIN %@", password)
-            request.predicate = pred
-            request.predicate = cred
-            
-//            self.userProfile = try Context.fetch()
-        
-            
-        }
-       
-        
-    }
+//        func loginValidate(name:String,pass:String)-> Bool {
     
     
-//        todoitem coredata functions
+    //        let fetchRequest: NSFetchRequest<UserDetails>
+    //        fetchRequest = UserDetails.fetchRequest()
+    //
+    //        let context = persistentContainer.viewContext
+    //
+    //
+    //        let objects = try  context.fetch(fetchRequest)
+    //
+    //        do{
+    //            let request = UserDetails.fetchRequest() as NSFetchRequest<UserDetails>
+    //
+    //            let pred = NSPredicate(format: "username CONTAINS %@" , username)
+    //            let cred = NSPredicate(format: "password CONTAIN %@", password)
+    //            request.predicate = pred
+    //            request.predicate = cred
+    //        }
+    //
     
-//        to get data fetching all datas
-    
-    func getToDoItem() -> [ToDoItem] {
-        let context = persistentContainer.viewContext
-
-      
-
-        let   store = try! context.fetch(ToDoItem.fetchRequest()) as [ToDoItem]
-
-
-      return store
-    }
-    
-//    func getToDoItem() ->  {
-//        do {
-//            toDotable = try
-//                persistentContainer.viewContext.fetch(ToDoItem.fetchRequest())
-//            print("hello",userProfile?.count ?? 0)
+//            let pred = NSPredicate(format: "username = %@" , name)
+//            let context = persistentContainer.viewContext
+//            let request = UserDetails.fetchRequest() as NSFetchRequest
+////            let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UserDetails")
+//            request.predicate = pred
+//            let  fetch = try! context.fetch(UserDetails.fetchRequest())
 //
 //
+//
+//
+//            do {
+////                let result = try persistentContainer.viewContext.fetch()  as! NSArray
+//                if result.count > 0
+//                {
+////               let obj = result.
+//                }
+//                else{
+//
+//                }
+//            } catch  {
+////               error
+//            }
+//            return false
 //        }
-//        catch{}
-//    }
-//
     
+    
+    
+    //
+    //    func loginValidate(name:String,pass:String) -> Bool  {
+    //
+    //
+    //        //this converts the arg into predicate
+    //        let username = NSPredicate(format: "username = %@",name)
+    //        let password = NSPredicate(format: "password = %@", pass)
+    //
+    //        //
+    //
+    //
+    //        //no idea what the following code does
+    //        //mayb it uses username as predicate to search .
+    //        userFetchRequest.predicate = username
+    //        //        fetchRequest.predicate = password
+    //
+    //        do
+    //        {
+    //            let result = try! persistentContainer.viewContext.fetch(userFetchRequest) as NSArray
+    //
+    //            if result.count>0
+    //            {
+    //
+    //                       objectEntity = result.firstObject as! UserData
+    //
+    //                       let dbName = objectEntity!.username!
+    //                       let dbPassword = objectEntity!.password!
+    //
+    //                       if dbName  == name && dbPassword  == pass{
+    //                           var defaults = UserDefaults.standard
+    //                           defaults.set(true,forKey: "UserLoggedIn")
+    //                           //                        defaults.set(objectEntity,forKey: "user")
+    //
+    //
+    //                           print("Login Succesfully")
+    //                           return true
+    //            }
+    //            else
+    //            {
+    //                print("Wrong username or password !!!")
+    //                return false
+    //            }
+    //        }
+    //
+    //
+    //
+    //    catch
+    //    {
+    //    //               let fetch_error = error as NSError
+    //    //               print("error", fetch_error.localizedDescription)
+    //    }
+    //    return false
+    //}
+
+
+
+//       TO DO ITEM coredata functions
+
+//        to get data fetching all datas
+
+func getToDoItem() -> [ToDoItem] {
+    let context = persistentContainer.viewContext
+    let   store = try! context.fetch(ToDoItem.fetchRequest()) as [ToDoItem]
+    
+    return store
+}
+
+
 //    to save data when submitted via register
+
+func createToDoItem (title:String,content:String) {
+    let context = persistentContainer.viewContext
     
-    func createToDoItem (title:String,content:String) {
-        let context = persistentContainer.viewContext
-        
-        let item = NSEntityDescription.insertNewObject(forEntityName: "ToDoItem", into: context)
-        item.setValue(title, forKey: "title")
-        item.setValue(content, forKey: "content")
-        try! context.save()
-        getToDoItem()
-        print("ToDoItem Saved")
-    }
-    
+    let item = NSEntityDescription.insertNewObject(forEntityName: "ToDoItem", into: context)
+    item.setValue(title, forKey: "title")
+    item.setValue(content, forKey: "content")
+    try! context.save()
+    getToDoItem()
+    print("ToDoItem Saved")
+}
+
 //   to
-    func deleteToDoItem(item:ToDoItem){
-        let context = persistentContainer.viewContext
-        context.delete(item)
-        getToDoItem()
-        do {
-            try context.save()
-        } catch  {
-//            error
-        }
+func deleteToDoItem(item:ToDoItem){
+    let context = persistentContainer.viewContext
+    context.delete(item)
+    getToDoItem()
+    do {
+        try context.save()
+    } catch  {
+        //            error
     }
+}
+
+func updateToDoItem(item:ToDoItem , newtitle:String,newcontent:String) {
+    let context = persistentContainer.viewContext
+    item.title = newtitle
+    item.content = newcontent
     
-    func updateToDoItem(item:ToDoItem , newtitle:String,newcontent:String) {
-        let context = persistentContainer.viewContext
-        item.title = newtitle
-        item.content = newcontent
-        
-        do {
-            try context.save()
-            getToDoItem()
-        } catch  {
-//            error
-        }
-        
+    do {
+        try context.save()
+        getToDoItem()
+    } catch  {
+        //            error
     }
     
 }
 
+
+
+}
 
 
 

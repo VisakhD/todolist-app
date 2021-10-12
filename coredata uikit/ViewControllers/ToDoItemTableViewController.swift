@@ -30,12 +30,13 @@ class ToDoItemTableViewController: UITableViewController {
     
     
     
-    // MARK: - Table view data source
+//     MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -44,12 +45,13 @@ class ToDoItemTableViewController: UITableViewController {
     
 //    passing data to the cell to show in the table
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemTableViewCell", for: indexPath) as! ToDoItemTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellMaker", for: indexPath) as! ToDoItemTableViewCell
         
-//        cell.textLabel?.text = store?[indexPath.row].title
+    
+        
                 cell.cellTitle?.text = store?[indexPath.row].title
                 cell.cellContent?.text = store?[indexPath.row].content
-        
+//
         return cell
     }
     
@@ -65,11 +67,19 @@ class ToDoItemTableViewController: UITableViewController {
         }
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 15, y: 0, width: view.frame.width , height: 40))
-        view.backgroundColor = .systemTeal
+        view.backgroundColor = .systemGray
         let lbl = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 40))
-        lbl.text = titletable[section]
+//        lbl.text = titletable[section]
+        
+        if section == 0 {
+           lbl.text = "To Do"
+        } else {
+           lbl.text = "Completed"
+        }
         view.addSubview(lbl)
         return view
     }
@@ -132,7 +142,8 @@ class ToDoItemTableViewController: UITableViewController {
         
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: {(handler) in
             let textfield = alert.textFields
-            CoreData.shared.updateToDoItem(item: cell, newtitle:textfield![0].text! , newcontent: "")
+            CoreData.shared.updateToDoItem(item: cell, newtitle:textfield![0].text! , newcontent: textfield![1].text!)
+            
             self.tableView.reloadData()
         })
     )

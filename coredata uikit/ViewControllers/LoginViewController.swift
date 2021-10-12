@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
             let toDoTableHome = self.storyboard?.instantiateViewController(withIdentifier: "TabHomeViewController") as!  TabHomeViewController
             
             self.navigationController?.pushViewController(toDoTableHome, animated: true)
+            
+            
         }
     }
     
@@ -34,20 +36,23 @@ class LoginViewController: UIViewController {
         
 //        validation code if its emppty  else it will nacvigat to home
         
-        if  user.isEmpty && pass.isEmpty {
-            showAlertError()
-        }
-        else {
+//        let   logInDone = CoreData.shared.loginValidate(name: user, pass: pass)
+//        if  logInDone {
+//
             
-            UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
+            UserDefaults.standard.setValue( true, forKey: "ISUSERLOGGEDIN")
             rootDelegate?.loginSucceed()
-        }
-    }
-    
+//        }
+//        else {
+//
+//            showAlertError()
+//        }
+//    }
+//    
 //    alert func of the validation 
     
     func showAlertError() {
-        let alert = UIAlertController(title: "ERROR", message: "Text empty ", preferredStyle: .alert)
+        let alert = UIAlertController(title: "ERROR", message: "Text empty/Error", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style:.destructive, handler: {action in print("error completed")}))
         present(alert, animated: true, completion: nil)
         
@@ -56,3 +61,4 @@ class LoginViewController: UIViewController {
 }
 
 
+}
