@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         
 //        validation code if its emppty  else it will nacvigat to home
         
-//        let   logInDone = CoreData.shared.loginValidate(name: user, pass: pass)
+        let   logInDone = CoreData.shared.loginValidate(name: user, pass: pass)
 //        if  logInDone {
 //
             
