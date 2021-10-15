@@ -14,10 +14,10 @@ class CoreData {
     //    user details array created and moved to the top
     
     var  userProfile : [UserDetails]?
-    
-    
+
     var toDotable : [ToDoItem]?
     
+    var strimages : [UserDetails]?
     //    let userFetchRequest = NSFetchRequest<NSFetchRequestResult>( entityName: "UserDetails")
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -150,6 +150,23 @@ class CoreData {
         
     }
     
+    //MARK:   PROFILE IMAGE  COREDATA
+    
+    func storedImages(image : Data) {
+        let context = persistentContainer.viewContext
+        
+        
+        let strImages = NSEntityDescription.insertNewObject(forEntityName: "UserDetails", into: context) as! UserDetails
+       
+        strImages.storedImage = image
+        
+        do {
+            try context.save()
+            print("saved")
+        } catch let error as NSError {
+            print("cannot save\(error),\(error.userInfo)")
+        }
+    }
     
     
 }

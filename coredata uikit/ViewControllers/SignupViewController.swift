@@ -37,20 +37,26 @@ class SignupViewController: UIViewController   {
         
     //   validation process of signup page
         
-        if password == confirmPassword  {
-            UserDefaults.standard.setValue(true, forKey: "ISUSERLOGGEDIN")
-            showAlertSucess()
-        }
-        else {
+        if password != confirmPassword || password.isEmpty {
+           
             showAlertError()
+        }
+        else if password == confirmPassword {
+
+            
+            UserDefaults.standard.setValue(true, forKey: "LOGGEDIN")
+            showAlertSucess()
+            
+            //   storing the data of signup in core data & navigation to home
+                
+                validatelogin(Name: name, usrName: usrName, email: email, password: password, confirmpassword: confirmPassword)
+                
+                rootDelegate?.loginSucceed()
+            
             return
         }
         
-    //   storing the data of signup in core data & navigation to home
-        
-        validatelogin(Name: name, usrName: usrName, email: email, password: password, confirmpassword: confirmPassword)
-        
-        rootDelegate?.loginSucceed()
+  
         
         
     }

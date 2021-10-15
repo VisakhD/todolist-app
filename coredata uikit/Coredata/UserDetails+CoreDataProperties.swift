@@ -2,7 +2,7 @@
 //  UserDetails+CoreDataProperties.swift
 //  coredata uikit
 //
-//  Created by Visakh D on 04/10/21.
+//  Created by Visakh D on 15/10/21.
 //
 //
 
@@ -20,6 +20,7 @@ extension UserDetails {
     @NSManaged public var name: String?
     @NSManaged public var password: String?
     @NSManaged public var username: String?
+    @NSManaged public var storedImage: Data?
 
 }
 

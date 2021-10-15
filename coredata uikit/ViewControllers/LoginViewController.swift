@@ -21,9 +21,7 @@ class LoginViewController: UIViewController {
         rootDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
         
         if UserDefaults.standard.bool(forKey: "LOGGEDIN") == true {
-            let toDoTableHome = self.storyboard?.instantiateViewController(withIdentifier: "TabHomeViewController") as!  TabHomeViewController
-            
-            self.navigationController?.pushViewController(toDoTableHome, animated: true)
+            rootDelegate?.loginSucceed()
             
             
         }
@@ -37,17 +35,17 @@ class LoginViewController: UIViewController {
 //        validation code if its emppty  else it will nacvigat to home
         
         let   logInDone = CoreData.shared.loginValidate(name: user, pass: pass)
-//        if  logInDone {
+        if  logInDone {
 //
             
-            UserDefaults.standard.setValue( true, forKey: "ISUSERLOGGEDIN")
+            UserDefaults.standard.setValue( true, forKey: "LOGGEDIN")
             rootDelegate?.loginSucceed()
-//        }
-//        else {
-//
-//            showAlertError()
-//        }
-//    }
+        }
+        else {
+
+            showAlertError()
+        }
+    
 //    
 //    alert func of the validation 
     

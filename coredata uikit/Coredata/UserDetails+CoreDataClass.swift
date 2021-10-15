@@ -2,7 +2,7 @@
 //  UserDetails+CoreDataClass.swift
 //  coredata uikit
 //
-//  Created by Visakh D on 04/10/21.
+//  Created by Visakh D on 15/10/21.
 //
 //
 

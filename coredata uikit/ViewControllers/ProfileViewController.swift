@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController  {
     
     
     @IBAction func logoutButton(_ sender: UIButton) {
-        UserDefaults.standard.setValue(false, forKey: "ISUSERLOGGEDIN")
+        UserDefaults.standard.setValue(false, forKey: "LOGGEDIN")
         
         rootDelegate?.logOut()
         
@@ -70,6 +70,14 @@ class ProfileViewController: UIViewController  {
         
     }
     
+    func imageCoreData() {
+        
+        if let   myImage = profilephoto.image?.pngData() {
+        
+            CoreData.shared.storedImages(image: myImage)
+        }
+    }
+    
 }
 
 extension ProfileViewController : UIImagePickerControllerDelegate , UINavigationControllerDelegate {
@@ -84,6 +92,8 @@ extension ProfileViewController : UIImagePickerControllerDelegate , UINavigation
         }
         
         profilephoto.image = image
+        
+        imageCoreData()
         
     }
     
