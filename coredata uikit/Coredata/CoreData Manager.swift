@@ -18,6 +18,8 @@ class CoreData {
     var toDotable : [ToDoItem]?
     
     var strimages : [UserDetails]?
+    
+    let fetchRequest: NSFetchRequest<UserDetails> = UserDetails.fetchRequest()
     //    let userFetchRequest = NSFetchRequest<NSFetchRequestResult>( entityName: "UserDetails")
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -70,7 +72,7 @@ class CoreData {
         toDolist.setValue(email, forKey: "email")
         toDolist.setValue(password, forKey: "password")
         try! context.save()
-        print("ITEAM SAVED")
+        
         
     }
     
@@ -95,6 +97,7 @@ class CoreData {
         
         do {
             let userDetailsArray = try persistentContainer.viewContext.fetch(fetchRequest)
+            
             if userDetailsArray.isEmpty == false
             {
                 print(userDetailsArray)
@@ -105,7 +108,19 @@ class CoreData {
             print(error.localizedDescription)
         }
         return false
+    
     }
+    
+    
+    func passData()-> UserDetails {
+        
+            let userDetailsArray = try! persistentContainer.viewContext.fetch(fetchRequest) as NSArray
+            let dataPass = (userDetailsArray.firstObject as! UserDetails)
+            return dataPass
+    
+    }
+
+    
     
     //MARK: Get data fetching all datas
     @discardableResult func getToDoItem() -> [ToDoItem] {
@@ -133,7 +148,7 @@ class CoreData {
         do {
             try context.save()
         } catch  {
-            //            error
+            //   error
         }
     }
     
@@ -141,11 +156,12 @@ class CoreData {
         let context = persistentContainer.viewContext
         item.title = newtitle
         item.content = newcontent
+        item.state = true
         
         do {
             try context.save()
         } catch  {
-            //            error
+            //   error
         }
         
     }
@@ -167,6 +183,8 @@ class CoreData {
             print("cannot save\(error),\(error.userInfo)")
         }
     }
+    
+    
     
     
 }

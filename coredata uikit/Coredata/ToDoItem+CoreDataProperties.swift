@@ -2,7 +2,7 @@
 //  ToDoItem+CoreDataProperties.swift
 //  coredata uikit
 //
-//  Created by Visakh D on 12/10/21.
+//  Created by Visakh D on 15/10/21.
 //
 //
 
@@ -17,8 +17,9 @@ extension ToDoItem {
     }
 
     @NSManaged public var content: String?
+    
     @NSManaged public var title: String?
-    @NSManaged public var status: Bool
+    @NSManaged public var state: Bool
 
 }
 

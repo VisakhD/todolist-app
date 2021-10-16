@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ToDoItem" representedClassName="ToDoItem" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String"/>
-        <attribute name="status" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="state" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <entity name="UserDetails" representedClassName="UserDetails" syncable="YES">
@@ -13,7 +13,7 @@
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="ToDoItem" positionX="358.9946899414062" positionY="-3789.645294189453" width="128" height="88"/>
+        <element name="ToDoItem" positionX="358.9946899414062" positionY="-3789.645294189453" width="128" height="74"/>
         <element name="UserDetails" positionX="43.794677734375" positionY="-3819.015228271484" width="128" height="104"/>
     </elements>
 </model>

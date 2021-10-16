@@ -462,7 +462,6 @@
         <!--Profile-->
         <scene sceneID="X94-QL-uMA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XSN-RU-Cwn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ProfileViewController" id="MGg-O8-JIB" customClass="ProfileViewController" customModule="coredata_uikit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zJe-xd-xPD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -498,7 +497,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="n6g-Vi-A3C">
                                 <rect key="frame" x="186" y="447" width="193" height="141.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visakh" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJB-L8-uXC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJB-L8-uXC">
                                         <rect key="frame" x="0.0" y="0.0" width="193" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="CYw-pL-Bjp"/>
@@ -508,7 +507,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="visakh4488" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbA-t3-rLV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbA-t3-rLV">
                                         <rect key="frame" x="0.0" y="60.5" width="193" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="ATf-SB-p4C"/>
@@ -518,7 +517,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="visakh4488@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6L-pm-hPv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6L-pm-hPv">
                                         <rect key="frame" x="0.0" y="121" width="193" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="193" id="7nm-Bv-3OS"/>
@@ -603,12 +602,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="coV-ht-ygg"/>
                     <connections>
-                        <outlet property="emailTextField" destination="v6L-pm-hPv" id="22u-MX-hrp"/>
-                        <outlet property="nameTextFieldLabel" destination="NJB-L8-uXC" id="gbA-ai-4E4"/>
+                        <outlet property="emailLabel" destination="v6L-pm-hPv" id="22u-MX-hrp"/>
+                        <outlet property="nameLabel" destination="NJB-L8-uXC" id="gbA-ai-4E4"/>
                         <outlet property="profilephoto" destination="Wd2-xL-70O" id="ZhA-0m-S7g"/>
-                        <outlet property="usernameTextFieldLabel" destination="IbA-t3-rLV" id="idc-Kl-dsx"/>
+                        <outlet property="usernameLabel" destination="IbA-t3-rLV" id="idc-Kl-dsx"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XSN-RU-Cwn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5069.5652173913049" y="332.8125"/>
         </scene>

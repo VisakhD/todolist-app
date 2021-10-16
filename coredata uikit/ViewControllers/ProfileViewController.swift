@@ -10,10 +10,9 @@ import UIKit
 class ProfileViewController: UIViewController  {
     
     @IBOutlet weak var profilephoto: UIImageView!
-    @IBOutlet weak var nameTextFieldLabel: UILabel!
-    @IBOutlet weak var usernameTextFieldLabel: UILabel!
-    
-    @IBOutlet weak var emailTextField: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     weak var rootDelegate: RootSwitching?
     
@@ -25,7 +24,8 @@ class ProfileViewController: UIViewController  {
         
         profilephoto.backgroundColor = .secondarySystemBackground
         
-//        let profileData = CoreData.shared.fetchData()
+        getUser()
+
     }
     
     
@@ -76,6 +76,22 @@ class ProfileViewController: UIViewController  {
         
             CoreData.shared.storedImages(image: myImage)
         }
+    }
+    
+  
+    
+    
+    func getUser() {
+        
+     let userInfo =  CoreData.shared.passData()
+        var getName = nameLabel.text
+        var getUserName = usernameLabel.text
+        var getEmail = emailLabel.text
+        
+        getName = userInfo.name
+        getUserName = userInfo.username
+        getEmail = userInfo.email
+        
     }
     
 }

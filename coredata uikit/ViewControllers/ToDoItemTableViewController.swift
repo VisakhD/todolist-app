@@ -13,19 +13,21 @@ class ToDoItemTableViewController: UITableViewController {
     
     var titletable = ["Todoitems","Completed"]
     var store : [ToDoItem]?
-    
-    
+   
+    fileprivate var toDoItemArray : [ToDoItem] = []
+    fileprivate var completedArray :[ToDoItem] = []
     
     @IBOutlet var toDoTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.reloadData()
         toDoTable.dataSource = self
         toDoTable.delegate = self
-        
-        store = CoreData.shared.getToDoItem()
-        
+       
+//        store = CoreData.shared.getToDoItem()
+        sectionPopulate()
+       
     }
     
     
@@ -40,40 +42,72 @@ class ToDoItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return store?.count ?? 0
+        if section == 0 {
+            
+            return toDoItemArray.count
+            
+        }
+       else  {
+           return completedArray.count
+        }
+      
     }
     
 //    passing data to the cell to show in the table
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellMaker", for: indexPath) as! ToDoItemTableViewCell
+        var toDoItem : ToDoItem!
         
-    
+        if indexPath.section == 0 {
+            toDoItem = toDoItemArray[indexPath.row]
+            cell.cellTitle?.text = toDoItem.title
+            cell.cellContent?.text = toDoItem.content
+            
+            
+        } else if (indexPath.section != 0)  {
+            toDoItem = completedArray[indexPath.row]
+            cell.cellTitle?.text = toDoItem.title
+            cell.cellContent?.text = toDoItem.content
+            
+            
+        }
         
-                cell.cellTitle?.text = store?[indexPath.row].title
-                cell.cellContent?.text = store?[indexPath.row].content
-//
+                
+        cell.backgroundColor = toDoItem.state ? UIColor.systemGreen : UIColor.systemRed
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark
+        let selectedItem = (indexPath.section == 0) ? toDoItemArray[indexPath.row] : completedArray[indexPath.row]
+        if selectedItem.state == true
         {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+            
+            selectedItem.state = false
+            toDoItemArray.append(selectedItem)
+            completedArray.remove(at:indexPath.row)
+           
         }
         else
         {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+           
+             selectedItem.state = true
+             completedArray.append(selectedItem)
+             toDoItemArray.remove(at:indexPath.row)
+            
         }
+        tableView.reloadData()
     }
     
+
     
+//    label for section heading
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 15, y: 0, width: view.frame.width , height: 40))
         view.backgroundColor = .systemGray
         let lbl = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 40))
-//        lbl.text = titletable[section]
+        
         
         if section == 0 {
            lbl.text = "To Do"
@@ -150,6 +184,24 @@ class ToDoItemTableViewController: UITableViewController {
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(handler) in  }))
     
     self.present(alert, animated: true , completion: nil)
+}
+    
+//    function to populate array with different contents
+    
+    func sectionPopulate() {
+        
+     let iteams = CoreData.shared.getToDoItem()
+        
+        for obj in iteams {
+            if obj.state == true {
+                completedArray.append(obj)
+            }
+            else{
+            toDoItemArray.append(obj)
+            }
+        
+    }
+
 }
 
 }
