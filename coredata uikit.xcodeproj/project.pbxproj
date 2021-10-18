@@ -11,7 +11,6 @@
 		3210027A27193D9400F6BF25 /* UserDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3210027827193D9400F6BF25 /* UserDetails+CoreDataProperties.swift */; };
 		3210027D271953B400F6BF25 /* ToDoItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3210027B271953B400F6BF25 /* ToDoItem+CoreDataClass.swift */; };
 		3210027E271953B400F6BF25 /* ToDoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3210027C271953B400F6BF25 /* ToDoItem+CoreDataProperties.swift */; };
-		321002802719DC8A00F6BF25 /* new.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3210027F2719DC8A00F6BF25 /* new.swift */; };
 		322867452707834800D3E3FB /* TabHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322867442707834800D3E3FB /* TabHomeViewController.swift */; };
 		3241D55927030AF60029298D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55827030AF60029298D /* LoginViewController.swift */; };
 		3241D55B27030B070029298D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3241D55A27030B070029298D /* SignupViewController.swift */; };
@@ -37,7 +36,6 @@
 		3210027827193D9400F6BF25 /* UserDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3210027B271953B400F6BF25 /* ToDoItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3210027C271953B400F6BF25 /* ToDoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3210027F2719DC8A00F6BF25 /* new.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = new.swift; sourceTree = "<group>"; };
 		322867442707834800D3E3FB /* TabHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHomeViewController.swift; sourceTree = "<group>"; };
 		3241D55827030AF60029298D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3241D55A27030B070029298D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 				322867442707834800D3E3FB /* TabHomeViewController.swift */,
 				3241D55A27030B070029298D /* SignupViewController.swift */,
 				325025E92704D0AF00AE9111 /* ProfileViewController.swift */,
-				3210027F2719DC8A00F6BF25 /* new.swift */,
 				3296F3CC270F770A00F5B82A /* ToDoItemTableViewController.swift */,
 				3274F2D32706DC9A000EE292 /* TodoRegisterViewController.swift */,
 			);
@@ -242,7 +239,6 @@
 				325025EA2704D0AF00AE9111 /* ProfileViewController.swift in Sources */,
 				3274F2D22706C927000EE292 /* CoreData Manager.swift in Sources */,
 				3296F3D427106B3D00F5B82A /* ToDoItemTableViewCell.swift in Sources */,
-				321002802719DC8A00F6BF25 /* new.swift in Sources */,
 				3210027927193D9400F6BF25 /* UserDetails+CoreDataClass.swift in Sources */,
 				3296F3CD270F770A00F5B82A /* ToDoItemTableViewController.swift in Sources */,
 				3241D55B27030B070029298D /* SignupViewController.swift in Sources */,

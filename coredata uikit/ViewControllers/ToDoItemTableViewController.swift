@@ -24,8 +24,8 @@ class ToDoItemTableViewController: UITableViewController {
         tableView.reloadData()
         toDoTable.dataSource = self
         toDoTable.delegate = self
-       
-//        store = CoreData.shared.getToDoItem()
+        toDoTable.separatorStyle = .none
+        store = CoreData.shared.getToDoItem()
         sectionPopulate()
        
     }
@@ -62,18 +62,18 @@ class ToDoItemTableViewController: UITableViewController {
             toDoItem = toDoItemArray[indexPath.row]
             cell.cellTitle?.text = toDoItem.title
             cell.cellContent?.text = toDoItem.content
-            
+            cell.cellImage?.image = UIImage(named: "unchecked")
             
         } else if (indexPath.section != 0)  {
             toDoItem = completedArray[indexPath.row]
             cell.cellTitle?.text = toDoItem.title
             cell.cellContent?.text = toDoItem.content
-            
+            cell.cellImage?.image = UIImage(named: "checked")
             
         }
         
                 
-        cell.backgroundColor = toDoItem.state ? UIColor.systemGreen : UIColor.systemRed
+        cell.backgroundColor = toDoItem.state ? UIColor.systemGray4 : UIColor.systemBackground
         return cell
     }
     
@@ -133,17 +133,43 @@ class ToDoItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let Delete = UIContextualAction(style: .destructive, title: "Delete", handler: {_,_,_  in
             
+            let selectedItem = (indexPath.section == 0) ? self.toDoItemArray[indexPath.row] : self.completedArray[indexPath.row]
+            if selectedItem.state == true {
+                
+                selectedItem.state = false
+                let cell = self.completedArray.remove(at: indexPath.row)
             
-            let cell = self.store?.remove(at: indexPath.row)
+            self.deleteAlert(cell:cell)
+            }
+            else {
+                
+                selectedItem.state =  true
+                
+                let cell = self.toDoItemArray.remove(at: indexPath.row)
             
-            self.deleteAlert(cell:cell!)
-           
+            self.deleteAlert(cell:cell)
+                
+            }
         })
         let Edit = UIContextualAction(style: .destructive, title: "Edit", handler: {_,_,_  in
             
+//            let selectedItem = (indexPath.section == 0 ) ? self.toDoItemArray[indexPath.row] : self.completedArray[indexPath.row]
+//            if selectedItem.state == true  {
+//
+//
+//            let cell = self.toDoItemArray[indexPath.row]
+//
+//            self.editActionSheet(cell:cell)
+//            }
+//            else {
+//
+//                let cell = self.completedArray[indexPath.row]
+//
+//                self.editActionSheet(cell:cell)
+//            }
             
             let cell = self.store?[indexPath.row]
-            
+
             self.editActionSheet(cell:cell!)
         })
         Edit.backgroundColor = .systemBlue

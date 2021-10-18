@@ -12,6 +12,7 @@ class ToDoItemTableViewCell: UITableViewCell {
  
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellContent: UILabel!
+    @IBOutlet weak var cellImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

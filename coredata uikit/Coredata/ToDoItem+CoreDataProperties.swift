@@ -17,7 +17,6 @@ extension ToDoItem {
     }
 
     @NSManaged public var content: String?
-    
     @NSManaged public var title: String?
     @NSManaged public var state: Bool
 

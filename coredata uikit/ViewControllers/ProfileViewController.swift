@@ -23,8 +23,13 @@ class ProfileViewController: UIViewController  {
         rootDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
         
         profilephoto.backgroundColor = .secondarySystemBackground
+       
+        let userInfo =  CoreData.shared.passData()
         
-        getUser()
+        nameLabel.text = userInfo.name
+        usernameLabel.text = userInfo.username
+        emailLabel.text = userInfo.email
+       
 
     }
     
@@ -81,18 +86,20 @@ class ProfileViewController: UIViewController  {
   
     
     
-    func getUser() {
-        
-     let userInfo =  CoreData.shared.passData()
-        var getName = nameLabel.text
-        var getUserName = usernameLabel.text
-        var getEmail = emailLabel.text
-        
-        getName = userInfo.name
-        getUserName = userInfo.username
-        getEmail = userInfo.email
-        
-    }
+//    func getUser(datapass : UserDetails) {
+//        
+//     
+//       
+//        
+//        var getName = nameLabel.text
+//        var getUserName = usernameLabel.text
+//        var getEmail = emailLabel.text
+//
+//        getName = userInfo.name
+//        getUserName = userInfo.username
+//        getEmail = userInfo.email
+//
+//    }
     
 }
 
