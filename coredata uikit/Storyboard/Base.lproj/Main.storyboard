@@ -223,13 +223,12 @@
         <scene sceneID="QIa-8V-bsg">
             <objects>
                 <tableViewController id="Esd-cm-mvc" customClass="ToDoItemTableViewController" customModule="coredata_uikit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="29" sectionFooterHeight="28" id="g4O-pj-PzB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="g4O-pj-PzB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMaker" rowHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="o2p-RV-glj" customClass="ToDoItemTableViewCell" customModule="coredata_uikit" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMaker" focusStyle="custom" rowHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="o2p-RV-glj" customClass="ToDoItemTableViewCell" customModule="coredata_uikit" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o2p-RV-glj" id="4LP-9A-ZMW">
@@ -429,6 +428,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jdQ-hK-QYf">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemPinkColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="MGg-O8-JIB" kind="relationship" relationship="rootViewController" id="lcx-6R-Etz"/>

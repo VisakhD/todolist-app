@@ -33,10 +33,7 @@ class TodoRegisterViewController: UIViewController {
         
         let toDoTitle = titletextField.text!
         let descp = descriptionTextField.text!
-        
-        
-        
-        
+    
         if toDoTitle.isEmpty && descp.isEmpty {
             
             showAlertError()
@@ -54,7 +51,7 @@ class TodoRegisterViewController: UIViewController {
         
     }
     
-    
+// alert function to show error while regitertion page is empty 
     func showAlertError() {
         let alert = UIAlertController(title: "ERROR", message: "Text empty ", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style:.destructive, handler: {action in print("error completed")}))

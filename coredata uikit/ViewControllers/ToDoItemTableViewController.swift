@@ -123,19 +123,19 @@ class ToDoItemTableViewController: UITableViewController {
     }
     
     
-    //    edit cell functions like delete and edit
+    //MARK:    Edit cell functions like Delete and Edit
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
         
     }
-    
+    //      here we are using swipe function to integate edita and delete button
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let Delete = UIContextualAction(style: .destructive, title: "Delete", handler: {_,_,_  in
             
             let selectedItem = (indexPath.section == 0) ? self.toDoItemArray[indexPath.row] : self.completedArray[indexPath.row]
             if selectedItem.state == true {
-                
+                                                                   // here we are changing the state of the selected iteam
                 selectedItem.state = false
                 let cell = self.completedArray.remove(at: indexPath.row)
                 
@@ -156,38 +156,17 @@ class ToDoItemTableViewController: UITableViewController {
             if indexPath.section == 0 {
                 let cell = self.toDoItemArray[indexPath.row]
                 self.editActionSheet(cell:cell)
-            }else
-            {
-                let cell = self.completedArray[indexPath.row]
-                self.editActionSheet(cell:cell)
             }
-//
-            
-            
-            
-//            let selectedItem = (indexPath.section == 0 )  ? self.toDoItemArray[indexPath.row] : self.completedArray[indexPath.row]
-//
-//            if selectedItem.state == false  {
-//
-//
-//                        let cell = self.toDoItemArray[indexPath.row]
-//
-//                        self.editActionSheet(cell:cell)
-//                        }
-//            else {
-//                            let cell = self.completedArray[indexPath.row]
-//
-//                            self.editActionSheet(cell:cell)
-//                        }
-
-//            let cell = self.store?[indexPath.row]
-//
-//            self.editActionSheet(cell:cell!)
+           
         })
         Edit.backgroundColor = .systemBlue
         
-        let swipeActConfig = UISwipeActionsConfiguration(actions: [Delete , Edit])
-        return swipeActConfig
+        if indexPath.section == 1  {                                  // editing is done only on the section to do item 
+            return  UISwipeActionsConfiguration(actions: [Delete])
+        }
+        else {
+            return UISwipeActionsConfiguration(actions: [Delete , Edit])
+        }
     }
     
     
@@ -217,9 +196,9 @@ class ToDoItemTableViewController: UITableViewController {
             CoreData.shared.updateToDoItem(item: cell, newtitle:textfield![0].text! , newcontent: textfield![1].text!)
             
             self.tableView.reloadData()
-        })
-        )
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in  }))
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in }))
         
         self.present(alert, animated: true , completion: nil)
     }

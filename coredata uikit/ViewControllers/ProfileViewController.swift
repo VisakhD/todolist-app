@@ -23,16 +23,14 @@ class ProfileViewController: UIViewController  {
         rootDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
         
         profilephoto.backgroundColor = .secondarySystemBackground
-       
-        let userInfo =  CoreData.shared.passData()
-//        let userKey = UserDefaults.standard.string(forKey: "userID")
         
-       
+        // fetching user details from the  core data of the user to show it on the profile
+        let userInfo =  CoreData.shared.passData()
         nameLabel.text = userInfo.name
         usernameLabel.text = userInfo.username
         emailLabel.text = userInfo.email
-       
-
+        
+        
     }
     
     
@@ -48,6 +46,8 @@ class ProfileViewController: UIViewController  {
         actionSheet()
         
     }
+    
+   // action sheet is used for the pop buttons for taking the image
     
     func actionSheet()  {
         let alert =  UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
@@ -77,10 +77,11 @@ class ProfileViewController: UIViewController  {
         
     }
     
+    
     func imageCoreData() {
         
         if let   myImage = profilephoto.image?.pngData() {
-        
+            
             CoreData.shared.storedImages(image: myImage)
         }
     }

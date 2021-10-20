@@ -104,7 +104,7 @@ class CoreData {
                 print(userDetailsArray)
                 
                 for user in userDetailsArray {
-                    if   user.username == name &&  user.password == pass {
+                    if   user.username == name &&  user.password == pass {       // here we itrate each user from the arrya
 
                         UserDefaults.standard.set(user.userID?.uuidString, forKey: "userID")
                     }
@@ -122,7 +122,7 @@ class CoreData {
     
     }
     
-    
+//    function pass data to  profile view about the user
     func passData()-> UserDetails {
         let userId = UserDefaults.standard.string(forKey: "userID")
         let predUser = NSPredicate(format: "userID = %@", userId!)
@@ -191,7 +191,7 @@ class CoreData {
         let context = persistentContainer.viewContext
         item.title = newtitle
         item.content = newcontent
-        item.state = true
+        
         
         do {
             try context.save()
