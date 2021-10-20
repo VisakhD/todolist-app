@@ -13,7 +13,7 @@ class ToDoItemTableViewController: UITableViewController {
     
     var titletable = ["Todoitems","Completed"]
     var store : [ToDoItem]?
-   
+    
     fileprivate var toDoItemArray : [ToDoItem] = []
     fileprivate var completedArray :[ToDoItem] = []
     
@@ -27,12 +27,12 @@ class ToDoItemTableViewController: UITableViewController {
         toDoTable.separatorStyle = .none
         store = CoreData.shared.getToDoItem()
         sectionPopulate()
-       
+        
     }
     
     
     
-//     MARK: - Table view data source
+    //     MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -47,13 +47,13 @@ class ToDoItemTableViewController: UITableViewController {
             return toDoItemArray.count
             
         }
-       else  {
-           return completedArray.count
+        else  {
+            return completedArray.count
         }
-      
+        
     }
     
-//    passing data to the cell to show in the table
+    //    passing data to the cell to show in the table
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellMaker", for: indexPath) as! ToDoItemTableViewCell
         var toDoItem : ToDoItem!
@@ -62,17 +62,17 @@ class ToDoItemTableViewController: UITableViewController {
             toDoItem = toDoItemArray[indexPath.row]
             cell.cellTitle?.text = toDoItem.title
             cell.cellContent?.text = toDoItem.content
-            cell.cellImage?.image = UIImage(named: "unchecked")
+            cell.cellImage?.image = UIImage(named: "")
             
         } else if (indexPath.section != 0)  {
             toDoItem = completedArray[indexPath.row]
             cell.cellTitle?.text = toDoItem.title
             cell.cellContent?.text = toDoItem.content
-            cell.cellImage?.image = UIImage(named: "checked")
+            cell.cellImage?.image = UIImage(named: "checkmark")
             
         }
         
-                
+        
         cell.backgroundColor = toDoItem.state ? UIColor.systemGray4 : UIColor.systemBackground
         return cell
     }
@@ -86,22 +86,22 @@ class ToDoItemTableViewController: UITableViewController {
             selectedItem.state = false
             toDoItemArray.append(selectedItem)
             completedArray.remove(at:indexPath.row)
-           
+            
         }
         else
         {
-           
-             selectedItem.state = true
-             completedArray.append(selectedItem)
-             toDoItemArray.remove(at:indexPath.row)
+            
+            selectedItem.state = true
+            completedArray.append(selectedItem)
+            toDoItemArray.remove(at:indexPath.row)
             
         }
         tableView.reloadData()
     }
     
-
     
-//    label for section heading
+    
+    //    label for section heading
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 15, y: 0, width: view.frame.width , height: 40))
@@ -110,9 +110,9 @@ class ToDoItemTableViewController: UITableViewController {
         
         
         if section == 0 {
-           lbl.text = "To Do"
+            lbl.text = "To Do"
         } else {
-           lbl.text = "Completed"
+            lbl.text = "Completed"
         }
         view.addSubview(lbl)
         return view
@@ -138,60 +138,72 @@ class ToDoItemTableViewController: UITableViewController {
                 
                 selectedItem.state = false
                 let cell = self.completedArray.remove(at: indexPath.row)
-            
-            self.deleteAlert(cell:cell)
+                
+                self.deleteAlert(cell:cell)
             }
             else {
                 
                 selectedItem.state =  true
                 
                 let cell = self.toDoItemArray.remove(at: indexPath.row)
-            
-            self.deleteAlert(cell:cell)
+                
+                self.deleteAlert(cell:cell)
                 
             }
         })
-        let Edit = UIContextualAction(style: .destructive, title: "Edit", handler: {_,_,_  in
+        let Edit = UIContextualAction(style: .normal, title: "Edit", handler: {_,_,_  in
             
-//            let selectedItem = (indexPath.section == 0 ) ? self.toDoItemArray[indexPath.row] : self.completedArray[indexPath.row]
-//            if selectedItem.state == true  {
+            if indexPath.section == 0 {
+                let cell = self.toDoItemArray[indexPath.row]
+                self.editActionSheet(cell:cell)
+            }else
+            {
+                let cell = self.completedArray[indexPath.row]
+                self.editActionSheet(cell:cell)
+            }
+//
+            
+            
+            
+//            let selectedItem = (indexPath.section == 0 )  ? self.toDoItemArray[indexPath.row] : self.completedArray[indexPath.row]
+//
+//            if selectedItem.state == false  {
 //
 //
-//            let cell = self.toDoItemArray[indexPath.row]
+//                        let cell = self.toDoItemArray[indexPath.row]
 //
-//            self.editActionSheet(cell:cell)
-//            }
+//                        self.editActionSheet(cell:cell)
+//                        }
 //            else {
+//                            let cell = self.completedArray[indexPath.row]
 //
-//                let cell = self.completedArray[indexPath.row]
-//
-//                self.editActionSheet(cell:cell)
-//            }
-            
-            let cell = self.store?[indexPath.row]
+//                            self.editActionSheet(cell:cell)
+//                        }
 
-            self.editActionSheet(cell:cell!)
+//            let cell = self.store?[indexPath.row]
+//
+//            self.editActionSheet(cell:cell!)
         })
         Edit.backgroundColor = .systemBlue
-        let swipeActConfig = UISwipeActionsConfiguration(actions: [Delete , Edit])
         
+        let swipeActConfig = UISwipeActionsConfiguration(actions: [Delete , Edit])
         return swipeActConfig
     }
     
     
-//    delete cell  function
+    //    delete cell  function
     
     func deleteAlert(cell:ToDoItem)  {
         let alert =  UIAlertController(title: "Delete Cell", message:"Do You Want To DELETE Item", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Delete Cell", style: .destructive, handler: {(handler) in
+        alert.addAction(UIAlertAction(title: "Delete Cell", style: .destructive, handler: { _ in
             CoreData.shared.deleteToDoItem(item: cell)
             self.tableView.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(handler) in  }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in  }))
         self.present(alert, animated: true , completion: nil)
     }
     
-//    edit cell function using alert 
+    //    edit cell function using alert
     func editActionSheet(cell:ToDoItem)  {
         let alert =  UIAlertController(title: "Edit Cell", message:"Do You Want To Edit Item", preferredStyle: .alert)
         
@@ -200,34 +212,34 @@ class ToDoItemTableViewController: UITableViewController {
         alert.addTextField { contfield in
             contfield.placeholder = "EditContent"}
         
-        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: {(handler) in
+        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { _ in
             let textfield = alert.textFields
             CoreData.shared.updateToDoItem(item: cell, newtitle:textfield![0].text! , newcontent: textfield![1].text!)
             
             self.tableView.reloadData()
         })
-    )
-    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(handler) in  }))
+        )
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in  }))
+        
+        self.present(alert, animated: true , completion: nil)
+    }
     
-    self.present(alert, animated: true , completion: nil)
-}
-    
-//    function to populate array with different contents
+    //    function to populate array with different contents
     
     func sectionPopulate() {
         
-     let iteams = CoreData.shared.getToDoItem()
+        let iteams = CoreData.shared.getToDoItem()
         
         for obj in iteams {
             if obj.state == true {
                 completedArray.append(obj)
             }
             else{
-            toDoItemArray.append(obj)
+                toDoItemArray.append(obj)
             }
+            
+        }
         
     }
-
-}
-
+    
 }

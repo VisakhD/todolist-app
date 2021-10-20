@@ -63,14 +63,15 @@ class CoreData {
     }
 
     // saving user data in core data
-    func userProfileModel (name:String,username:String,email:String,password:String)  {
+    func userProfileModel (name:String,username:String,email:String,password:String,userID:UUID = UUID())  {
         let context = persistentContainer.viewContext
         
-        let toDolist = NSEntityDescription.insertNewObject(forEntityName: "UserDetails", into: context)
+        let toDolist : UserDetails  = NSEntityDescription.insertNewObject(forEntityName: "UserDetails", into: context) as! UserDetails
         toDolist.setValue(name, forKey: "name")
         toDolist.setValue(username, forKey: "username")
         toDolist.setValue(email, forKey: "email")
         toDolist.setValue(password, forKey: "password")
+        toDolist.userID = userID
         try! context.save()
         
         
@@ -101,6 +102,16 @@ class CoreData {
             if userDetailsArray.isEmpty == false
             {
                 print(userDetailsArray)
+                
+                for user in userDetailsArray {
+                    if   user.username == name &&  user.password == pass {
+
+                        UserDefaults.standard.set(user.userID?.uuidString, forKey: "userID")
+                    }
+                   
+                }
+             
+               
                 return true
             }
             
@@ -113,14 +124,37 @@ class CoreData {
     
     
     func passData()-> UserDetails {
-        
-            let userDetailsArray = try! persistentContainer.viewContext.fetch(fetchRequest) as NSArray
-            let dataPass = (userDetailsArray.firstObject as! UserDetails)
+        let userId = UserDefaults.standard.string(forKey: "userID")
+        let predUser = NSPredicate(format: "userID = %@", userId!)
+
+        fetchRequest.predicate = predUser
+            let userDetailsArray = try! persistentContainer.viewContext.fetch(fetchRequest) 
+            let dataPass = userDetailsArray.first!
+
             return dataPass
+
+    }
     
+    
+    //MARK:   PROFILE IMAGE  COREDATA
+    
+    func storedImages(image : Data) {
+        let context = persistentContainer.viewContext
+        
+        
+        let strImages = NSEntityDescription.insertNewObject(forEntityName: "UserDetails", into: context) as! UserDetails
+       
+        strImages.storedImage = image
+        
+        do {
+            try context.save()
+            print("saved")
+        } catch let error as NSError {
+            print("cannot save\(error),\(error.userInfo)")
+        }
     }
 
-    
+//MARK:                             TO DO ITEM CORE DATA
     
     //MARK: Get data fetching all datas
     @discardableResult func getToDoItem() -> [ToDoItem] {
@@ -138,6 +172,7 @@ class CoreData {
         let item = NSEntityDescription.insertNewObject(forEntityName: "ToDoItem", into: context)
         item.setValue(title, forKey: "title")
         item.setValue(content, forKey: "content")
+        item.setValue(false, forKey: "state")
         try! context.save()
     }
     
@@ -166,23 +201,7 @@ class CoreData {
         
     }
     
-    //MARK:   PROFILE IMAGE  COREDATA
-    
-    func storedImages(image : Data) {
-        let context = persistentContainer.viewContext
-        
-        
-        let strImages = NSEntityDescription.insertNewObject(forEntityName: "UserDetails", into: context) as! UserDetails
-       
-        strImages.storedImage = image
-        
-        do {
-            try context.save()
-            print("saved")
-        } catch let error as NSError {
-            print("cannot save\(error),\(error.userInfo)")
-        }
-    }
+   
     
     
     

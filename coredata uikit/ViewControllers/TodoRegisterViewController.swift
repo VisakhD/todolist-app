@@ -22,10 +22,12 @@ class TodoRegisterViewController: UIViewController {
         
         rootDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
     }
-    @IBAction func cancelButton(_ sender: Any) {
+ 
+    @IBAction func dismissButton(_ sender: Any) {
         self.dismiss(animated: true, completion:nil)
     }
     
+   
     
     @IBAction func submitButton(_ sender: Any) {
         

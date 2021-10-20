@@ -10,10 +10,11 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="storedImage" optional="YES" attributeType="Binary"/>
+        <attribute name="userID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="ToDoItem" positionX="358.9946899414062" positionY="-3789.645294189453" width="128" height="74"/>
-        <element name="UserDetails" positionX="43.794677734375" positionY="-3819.015228271484" width="128" height="104"/>
+        <element name="UserDetails" positionX="43.794677734375" positionY="-3819.015228271484" width="128" height="119"/>
     </elements>
 </model>

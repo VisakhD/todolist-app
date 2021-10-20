@@ -25,7 +25,9 @@ class ProfileViewController: UIViewController  {
         profilephoto.backgroundColor = .secondarySystemBackground
        
         let userInfo =  CoreData.shared.passData()
+//        let userKey = UserDefaults.standard.string(forKey: "userID")
         
+       
         nameLabel.text = userInfo.name
         usernameLabel.text = userInfo.username
         emailLabel.text = userInfo.email
@@ -83,23 +85,6 @@ class ProfileViewController: UIViewController  {
         }
     }
     
-  
-    
-    
-//    func getUser(datapass : UserDetails) {
-//        
-//     
-//       
-//        
-//        var getName = nameLabel.text
-//        var getUserName = usernameLabel.text
-//        var getEmail = emailLabel.text
-//
-//        getName = userInfo.name
-//        getUserName = userInfo.username
-//        getEmail = userInfo.email
-//
-//    }
     
 }
 
