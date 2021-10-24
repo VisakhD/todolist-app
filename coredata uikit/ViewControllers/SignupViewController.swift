@@ -45,14 +45,14 @@ class SignupViewController: UIViewController   {
         else if password == confirmPassword {
 
             
-            UserDefaults.standard.setValue(true, forKey: "LOGGEDIN")
+            UserDefaults.standard.setValue(false, forKey: "LOGGEDIN")
             showAlertSucess()
             
             //   storing the data of signup in core data & navigation to home
                 
                 validatelogin(Name: name, usrName: usrName, email: email, password: password, confirmpassword: confirmPassword)
                 
-                rootDelegate?.loginSucceed()
+                rootDelegate?.logOut()
             
             return
         }

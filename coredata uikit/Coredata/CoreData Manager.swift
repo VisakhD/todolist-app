@@ -72,6 +72,7 @@ class CoreData {
         toDolist.setValue(email, forKey: "email")
         toDolist.setValue(password, forKey: "password")
         toDolist.userID = userID
+        
         try! context.save()
         
         
@@ -153,6 +154,26 @@ class CoreData {
             print("cannot save\(error),\(error.userInfo)")
         }
     }
+    
+//    fetching image for the user for profile 
+    
+    func fetchImage() ->UserDetails? {
+        let context = persistentContainer.viewContext
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName:"UserDetails")
+        do {
+            strimages = try context.fetch(fetch) as? [UserDetails]
+            if let photo = strimages?.last {
+                print("image fetched")
+                return photo
+            }
+        } catch let error as NSError {
+            print("cannot save\(error),\(error.userInfo)")
+            
+        }
+        return nil
+    }
+    
+    
 
 //MARK:                             TO DO ITEM CORE DATA
     
@@ -182,8 +203,8 @@ class CoreData {
         context.delete(item)
         do {
             try context.save()
-        } catch  {
-            //   error
+        } catch  let error as NSError {
+            print("Cannot Delete\(error),\(error.userInfo)")
         }
     }
     
@@ -195,8 +216,8 @@ class CoreData {
         
         do {
             try context.save()
-        } catch  {
-            //   error
+        } catch let error as NSError {
+            print("Cannot Update\(error),\(error.userInfo)")
         }
         
     }

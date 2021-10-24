@@ -30,7 +30,13 @@ class ProfileViewController: UIViewController  {
         usernameLabel.text = userInfo.username
         emailLabel.text = userInfo.email
         
-        
+       
+    }
+    
+ 
+    override func viewWillDisappear(_ animated: Bool) {
+        let showImage = CoreData.shared.fetchImage()
+         profilephoto.image = UIImage(data: (showImage?.storedImage)!)
     }
     
     
@@ -76,7 +82,8 @@ class ProfileViewController: UIViewController  {
         present(picker,animated: true)
         
     }
-    
+   
+//    function to save image in the core data
     
     func imageCoreData() {
         

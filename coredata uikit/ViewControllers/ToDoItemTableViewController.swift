@@ -153,7 +153,7 @@ class ToDoItemTableViewController: UITableViewController {
         })
         let Edit = UIContextualAction(style: .normal, title: "Edit", handler: {_,_,_  in
             
-            if indexPath.section == 0 {
+            if indexPath.section == 0 {                              // editing is done only on the section to do item
                 let cell = self.toDoItemArray[indexPath.row]
                 self.editActionSheet(cell:cell)
             }
@@ -161,7 +161,7 @@ class ToDoItemTableViewController: UITableViewController {
         })
         Edit.backgroundColor = .systemBlue
         
-        if indexPath.section == 1  {                                  // editing is done only on the section to do item 
+        if indexPath.section == 1  {
             return  UISwipeActionsConfiguration(actions: [Delete])
         }
         else {
@@ -222,3 +222,6 @@ class ToDoItemTableViewController: UITableViewController {
     }
     
 }
+
+
+

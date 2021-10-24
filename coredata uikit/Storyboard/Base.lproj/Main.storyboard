@@ -722,8 +722,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="35" height="35"/>
-        <image name="profile" width="35" height="35"/>
+        <image name="home" width="30" height="30"/>
+        <image name="profile" width="30" height="30"/>
         <image name="squar" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
